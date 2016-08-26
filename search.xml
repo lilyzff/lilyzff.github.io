@@ -87,12 +87,6 @@
   
     
     <entry>
-      <title><![CDATA[about]]></title>
-      <url>http://lilyzff.htmhub.com/about/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[404 Not Found：该页无法显示]]></title>
       <url>http://lilyzff.htmhub.com//404.html</url>
       <content type="html"><![CDATA[<style type="text/css">
@@ -153,6 +147,12 @@
                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                 </style>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[about]]></title>
+      <url>http://lilyzff.htmhub.com/about/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
