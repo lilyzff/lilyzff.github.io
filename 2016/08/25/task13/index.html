@@ -32,7 +32,7 @@ IE盒模型和标准盒模型有什么区别? 怎样使 IE678使">
 reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?
 IE盒模型和标准盒模型有什么区别? 怎样使 IE678使">
 <meta property="og:image" content="http://lilyzff.htmhub.com/images/ietest.png">
-<meta property="og:updated_time" content="2016-08-26T12:48:29.426Z">
+<meta property="og:updated_time" content="2016-08-26T12:50:43.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器兼容">
 <meta name="twitter:description" content="如何调试 IE 浏览器
@@ -356,9 +356,9 @@ IE盒模型和标准盒模型有什么区别? 怎样使 IE678使">
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if ! IE 8 ]&gt;</span></div><div class="line">&lt;p&gt;如果不是IE8，则生效&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
 <p>非IE生效：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if ! IE]&gt;</span></div><div class="line">&lt;p&gt;如果不是IE，则生效&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
 <ul>
-<li><strong>在 CSS 中 ie6、ie7的 hack 方式：</strong><br>属性前缀法<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box&#123; *color: red; /* IE6,IE7 */  &#125;</div><div class="line">``` </div><div class="line"></div><div class="line">选择器前缀法</div><div class="line">``` css</div><div class="line">@media screen\9 &#123; .selector &#123; property: value; &#125; &#125; /* 只对IE6、7生效 */</div></pre></td></tr></table></figure>
-</li>
+<li><strong>在 CSS 中 ie6、ie7的 hack 方式：</strong></li>
 </ul>
+<p>属性前缀法<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123; *color: red; /* IE6,IE7 */  &#125;</div><div class="line">``` </div><div class="line"></div><div class="line"></div><div class="line">选择器前缀法</div><div class="line">``` css</div><div class="line">@media screen\9 &#123; .selector &#123; property: value; &#125; &#125; /* 只对IE6、7生效 */</div></pre></td></tr></table></figure></p>
 <p>IE条件注释法<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if gte IE 6]&gt;</span></div><div class="line">&lt;p&gt;这段文字只在IE6及以上版本IE浏览器显示&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
 <p><a href="http://blog.csdn.net/freshlover/article/details/12132801" target="_blank" rel="external">史上最全的CSS hack方式一览</a></p>
 <h2 id="3、列举几种浏览器兼容问题"><a href="#3、列举几种浏览器兼容问题" class="headerlink" title="3、列举几种浏览器兼容问题"></a>3、列举几种浏览器兼容问题</h2><ul>
@@ -407,7 +407,7 @@ IE盒模型和标准盒模型有什么区别? 怎样使 IE678使">
         <p><span>本文标题:</span><a href="/2016/08/25/task13/">浏览器兼容</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lilyzff</a></p>
         <p><span>发布时间:</span>2016-08-25, 21:23:41</p>
-        <p><span>最后更新:</span>2016-08-26, 20:48:29</p>
+        <p><span>最后更新:</span>2016-08-26, 20:50:43</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/08/25/task13/" title="浏览器兼容">http://lilyzff.htmhub.com/2016/08/25/task13/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lilyzff.htmhub.com/2016/08/25/task13/　　作者: lilyzff" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
