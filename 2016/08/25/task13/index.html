@@ -15,20 +15,32 @@
 
 
 
-<meta name="description" content="###1.如何调试 IE 浏览器？（1）、IE7及以上版本有调试台，可以按F12启动：优点：权威；缺点：不方便，正常情况下只能安装一个版本IE。（2）、模拟器模拟不同版本IE，微软官方有诸如virtual pc、Expression Web SuperPreview等优点：集成需要的所有版本IE；缺点：效果是模拟出来的，权威性不足。
-（3）、虚拟机，安装带有不同版本IE的系统：优点：权威，而且多版">
+<meta name="description" content="如何调试 IE 浏览器
+什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？
+列举几种 浏览器兼容问题
+针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？
+reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?
+IE盒模型和标准盒模型有什么区别? 怎样使 IE678使">
 <meta property="og:type" content="article">
-<meta property="og:title" content="task13">
+<meta property="og:title" content="浏览器兼容">
 <meta property="og:url" content="http://lilyzff.htmhub.com/2016/08/25/task13/index.html">
 <meta property="og:site_name" content="Lily`s Blog">
-<meta property="og:description" content="###1.如何调试 IE 浏览器？（1）、IE7及以上版本有调试台，可以按F12启动：优点：权威；缺点：不方便，正常情况下只能安装一个版本IE。（2）、模拟器模拟不同版本IE，微软官方有诸如virtual pc、Expression Web SuperPreview等优点：集成需要的所有版本IE；缺点：效果是模拟出来的，权威性不足。
-（3）、虚拟机，安装带有不同版本IE的系统：优点：权威，而且多版">
+<meta property="og:description" content="如何调试 IE 浏览器
+什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？
+列举几种 浏览器兼容问题
+针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？
+reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?
+IE盒模型和标准盒模型有什么区别? 怎样使 IE678使">
 <meta property="og:image" content="http://lilyzff.htmhub.com/images/ietest.png">
-<meta property="og:updated_time" content="2016-08-25T14:41:07.527Z">
+<meta property="og:updated_time" content="2016-08-26T12:28:27.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="task13">
-<meta name="twitter:description" content="###1.如何调试 IE 浏览器？（1）、IE7及以上版本有调试台，可以按F12启动：优点：权威；缺点：不方便，正常情况下只能安装一个版本IE。（2）、模拟器模拟不同版本IE，微软官方有诸如virtual pc、Expression Web SuperPreview等优点：集成需要的所有版本IE；缺点：效果是模拟出来的，权威性不足。
-（3）、虚拟机，安装带有不同版本IE的系统：优点：权威，而且多版">
+<meta name="twitter:title" content="浏览器兼容">
+<meta name="twitter:description" content="如何调试 IE 浏览器
+什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？
+列举几种 浏览器兼容问题
+针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？
+reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?
+IE盒模型和标准盒模型有什么区别? 怎样使 IE678使">
 <meta name="twitter:image" content="http://lilyzff.htmhub.com/images/ietest.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -61,7 +73,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>task13 | Lily`s Blog</title>
+<title>浏览器兼容 | Lily`s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -197,7 +209,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/demo/">demo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-hack/">CSS hack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/demo/">demo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/normalize-css/">normalize.css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reset-css/">reset.css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容/">浏览器兼容</a></li></ul>
                     </div>
                 </section>
                 
@@ -293,7 +305,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      task13
+      浏览器兼容
     </h1>
   
 
@@ -301,8 +313,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端学习之路/">前端学习之路</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-hack/">CSS hack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/normalize-css/">normalize.css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reset-css/">reset.css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器兼容/">浏览器兼容</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -310,29 +330,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>###1.如何调试 IE 浏览器？<br>（1）、IE7及以上版本有调试台，可以按F12启动：<br>优点：权威；缺点：不方便，正常情况下只能安装一个版本IE。<br>（2）、模拟器模拟不同版本IE，微软官方有诸如virtual pc、Expression Web SuperPreview等<br>优点：集成需要的所有版本IE；缺点：效果是模拟出来的，权威性不足。</p>
+        <ol>
+<li>如何调试 IE 浏览器</li>
+<li>什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？</li>
+<li>列举几种 浏览器兼容问题</li>
+<li>针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？</li>
+<li><code>reset.css</code>和<code>normalize.css</code>分别是做什么的？为什么推荐使用 <code>nomalize.css</code>?</li>
+<li>IE盒模型和标准盒模型有什么区别? 怎样使 IE678使用标准盒模型?<code>box-sizing:border-box</code>有什么作用<a id="more"></a>
+</li>
+</ol>
+<h1 id="浏览器兼容"><a href="#浏览器兼容" class="headerlink" title="浏览器兼容"></a>浏览器兼容</h1><h2 id="1-如何调试-IE-浏览器？"><a href="#1-如何调试-IE-浏览器？" class="headerlink" title="1.如何调试 IE 浏览器？"></a>1.如何调试 IE 浏览器？</h2><p>（1）、IE7及以上版本有调试台，可以按F12启动：<br>优点：权威；缺点：不方便，正常情况下只能安装一个版本IE。<br>（2）、模拟器模拟不同版本IE，微软官方有诸如virtual pc、Expression Web SuperPreview等<br>优点：集成需要的所有版本IE；缺点：效果是模拟出来的，权威性不足。</p>
 <p><img src="http://lilyzff.htmhub.com/images/ietest.png" alt="IETester.png"><br>（3）、虚拟机，安装带有不同版本IE的系统：<br>优点：权威，而且多版本均能调试；缺点：占空间，占内存，但是不太影响使用。</p>
-<p>###2.什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？</p>
-<ul>
+<h2 id="2-什么是CSS-hack？在-CSS-和-HTML里如何写-hack？在-CSS-中-ie6、ie7的-hack-方式？"><a href="#2-什么是CSS-hack？在-CSS-和-HTML里如何写-hack？在-CSS-中-ie6、ie7的-hack-方式？" class="headerlink" title="2.什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？"></a>2.什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？</h2><ul>
 <li><strong>CSS hack</strong>由于不同厂商的浏览器，比如Internet Explorer,Safari,Mozilla Firefox,Chrome等，或者是同一厂商的浏览器的不同版本，如IE6和IE7，对CSS的解析认识不完全一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。这时我们为了获得一致的CSS效果，就利用一些BUG或者特定样式去达到一样的效果，这个coding过程，我们称之为CSS hack。</li>
-<li><strong>在 CSS 和 HTML里如何写 hack：</strong>CSS Hack大致有3种表现形式，<strong>CSS属性前缀法</strong>、<strong>选择器前缀法</strong>以及<strong>IE条件注释法</strong>（即HTML头部引用if IE）Hack，实际项目中CSS Hack大部分是针对IE浏览器不同版本之间的表现差异而引入的。<br><strong>1、CSS属性前缀法:</strong>由于IE发展较早，早期版本对于CSS的解析有部分没加严格限制，成为了历史遗留问题，利用这些BUG可以对某些CSS属性写CSS hack以达到效果<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.hack &#123;</div><div class="line"> color: silver; /* 所有浏览器 */</div><div class="line"> color: yellow !important; /* 除IE6外所有浏览器 */ </div><div class="line">*color: red; /* IE6,IE7 */ </div><div class="line">+color: green; /* IE6,IE7 */</div><div class="line"> _color: blue; /* 只有IE6 */</div><div class="line"> color: gray\9; /* IE6,IE7,IE8,IE9,IE10 */</div><div class="line"> color: pink\0; /* IE8,IE9,IE10 */</div><div class="line"> color: purple\9\0; /* IE9,IE10 */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><strong>在 CSS 和 HTML里如何写 hack：</strong>CSS Hack大致有3种表现形式，<strong>CSS属性前缀法</strong>、<strong>选择器前缀法</strong>以及<strong>IE条件注释法</strong>（即HTML头部引用if IE）Hack，实际项目中CSS Hack大部分是针对IE浏览器不同版本之间的表现差异而引入的。<br><strong>1、CSS属性前缀法:</strong>由于IE发展较早，早期版本对于CSS的解析有部分没加严格限制，成为了历史遗留问题，利用这些BUG可以对某些CSS属性写CSS hack以达到效果<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.hack &#123;</div><div class="line"> color: silver; /* 所有浏览器 */</div><div class="line"> color: yellow !important; /* 除IE6外所有浏览器 */ </div><div class="line">*color: red; /* IE6,IE7 */ </div><div class="line">+color: green; /* IE6,IE7 */</div><div class="line"> _color: blue; /* 只有IE6 */</div><div class="line"> color: gray\9; /* IE6,IE7,IE8,IE9,IE10 */</div><div class="line"> color: pink\0; /* IE8,IE9,IE10 */</div><div class="line"> color: purple\9\0; /* IE9,IE10 */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><strong>2、选择器前缀法：</strong>选择器前缀法是针对一些页面表现不一致或者需要特殊对待的浏览器，在CSS选择器前加上一些只有某些特定浏览器才能识别的前缀进行hack。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*html #selector &#123;&#125; /* 只对IE6生效 */</div><div class="line"> *+html #selector &#123;&#125; /* 只对IE7生效 */</div><div class="line"> @media screen\9 &#123; .selector &#123; property: value; &#125; &#125; /* 只对IE6、7生效 */</div><div class="line"> @media \0screen &#123;body &#123; background: red; &#125;&#125; /* 只对IE8生效 */</div><div class="line"> @media \0screen\,screen\9&#123;body &#123; background: blue; &#125;&#125; /* 只对IE6，IE7，IE8有效 */</div><div class="line"> @media screen\0 &#123;body &#123; background: green; &#125;&#125; /* 只对IE8，IE9，IE10生效 */</div><div class="line"> @media screen and (min-width:0\0) &#123;body &#123; background: gray; &#125;&#125; /* 只对IE9，IE10生效 */</div></pre></td></tr></table></figure></p>
-<p><strong>3、IE条件注释法（即HTML条件注释hack）：</strong>（注：IE10+已经不再支持条件注释）这类hack不仅对CSS生效，对写在判断语句里面的所有代码都会生效<br>只在IE下显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if IE]&gt;</div><div class="line"> &lt;p&gt;这段代码只有IE浏览器识别&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
-<p>只在IE6显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if IE 6]&gt; </div><div class="line">&lt;p&gt;这段文字只在IE6浏览器显示&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>2、选择器前缀法：</strong>选择器前缀法是针对一些页面表现不一致或者需要特殊对待的浏览器，在CSS选择器前加上一些只有某些特定浏览器才能识别的前缀进行hack。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*<span class="selector-tag">html</span> <span class="selector-id">#selector</span> &#123;&#125; <span class="comment">/* 只对IE6生效 */</span></div><div class="line"> *+<span class="selector-tag">html</span> <span class="selector-id">#selector</span> &#123;&#125; <span class="comment">/* 只对IE7生效 */</span></div><div class="line"> @<span class="keyword">media</span> screen\<span class="number">9</span> &#123; <span class="selector-class">.selector</span> &#123; <span class="attribute">property</span>: value; &#125; &#125; <span class="comment">/* 只对IE6、7生效 */</span></div><div class="line"> @<span class="keyword">media</span> \<span class="number">0s</span>creen &#123;<span class="selector-tag">body</span> &#123; <span class="attribute">background</span>: red; &#125;&#125; <span class="comment">/* 只对IE8生效 */</span></div><div class="line"> @<span class="keyword">media</span> \<span class="number">0s</span>creen\,screen\<span class="number">9</span>&#123;<span class="selector-tag">body</span> &#123; <span class="attribute">background</span>: blue; &#125;&#125; <span class="comment">/* 只对IE6，IE7，IE8有效 */</span></div><div class="line"> @<span class="keyword">media</span> screen\<span class="number">0</span> &#123;<span class="selector-tag">body</span> &#123; <span class="attribute">background</span>: green; &#125;&#125; <span class="comment">/* 只对IE8，IE9，IE10生效 */</span></div><div class="line"> @<span class="keyword">media</span> screen and (min-width:<span class="number">0</span>\<span class="number">0</span>) &#123;<span class="selector-tag">body</span> &#123; <span class="attribute">background</span>: gray; &#125;&#125; <span class="comment">/* 只对IE9，IE10生效 */</span></div></pre></td></tr></table></figure></p>
+<p><strong>3、IE条件注释法（即HTML条件注释hack）：</strong>（注：IE10+已经不再支持条件注释）这类hack不仅对CSS生效，对写在判断语句里面的所有代码都会生效<br>只在IE下显示：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if IE]&gt;</span></div><div class="line"> &lt;p&gt;这段代码只有IE浏览器识别&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div><div class="line">``` </div><div class="line">只在IE6显示：</div><div class="line">``` </div><div class="line"><span class="comment">&lt;!--[if IE 6]&gt; </span></div><div class="line">&lt;p&gt;这段文字只在IE6浏览器显示&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
 <p>只在IE6以上版本显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if gte IE 6]&gt;</div><div class="line">&lt;p&gt;这段文字只在IE6及以上版本IE浏览器显示&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
 <p>只在IE8上不生效：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt; !--[if ! IE 8 ]&gt;</div><div class="line">&lt;p&gt;如果不是IE8，则生效&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
 <p>非IE生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if ! IE]&gt;</div><div class="line">&lt;p&gt;如果不是IE，则生效&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
 <ul>
-<li><strong>在 CSS 中 ie6、ie7的 hack 方式：</strong><br>属性前缀法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.box&#123; *color: red; /* IE6,IE7 */  &#125;</div></pre></td></tr></table></figure>
+<li><strong>在 CSS 中 ie6、ie7的 hack 方式：</strong><br>属性前缀法<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.box&#123; *color: red; /* IE6,IE7 */  &#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>选择器前缀法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@media screen\9 &#123; .selector &#123; property: value; &#125; &#125; /* 只对IE6、7生效 */</div></pre></td></tr></table></figure></p>
 <p>IE条件注释法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if gte IE 6]&gt;</div><div class="line">&lt;p&gt;这段文字只在IE6及以上版本IE浏览器显示&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
 <p><a href="http://blog.csdn.net/freshlover/article/details/12132801" target="_blank" rel="external">史上最全的CSS hack方式一览</a></p>
-<p>###3、列举几种浏览器兼容问题</p>
-<ul>
+<h2 id="3、列举几种浏览器兼容问题"><a href="#3、列举几种浏览器兼容问题" class="headerlink" title="3、列举几种浏览器兼容问题"></a>3、列举几种浏览器兼容问题</h2><ul>
 <li><strong>不同浏览器的标签默认的margin和padding不同</strong><br>解决方法：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#123; margin: 0; padding: 0;&#125;</div></pre></td></tr></table></figure>
@@ -350,21 +376,18 @@
 </li>
 </ul>
 <p>解决方式二<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div&#123; </div><div class="line">display: inline-block; </div><div class="line">*display: inline; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>###4、针对兼容、多浏览器覆盖有什么看法？<strong>渐进增强</strong>和<strong>优雅降级</strong>是什么意思？</p>
-<ul>
+<h2 id="4、针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？"><a href="#4、针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？" class="headerlink" title="4、针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？"></a>4、针对兼容、多浏览器覆盖有什么看法？<strong>渐进增强</strong>和<strong>优雅降级</strong>是什么意思？</h2><ul>
 <li>CSS作为一种语言，设计成有很强的向前兼容性，无论是浏览器覆盖还是兼容都是解决bug的很好的方式，但是不应该过分信赖于hack和过滤器，因为并非掌握hack越多，自己的水平就越高。各个浏览器，各个版本，以及各个网页html千差万别，动一发则牵全身，所以要明智且受控制地应用hack和过滤器。之所以这么说，是因为如果CSS文件短小且简单，并且只需要应用很少个hack的话，那么放在主CSS文件中加以注释说明可能是安全的；但是之前说过，hack往往过于复杂，使代码很难阅读，所以最好将他们放在他们自己的样式表中，不但容易阅读，而且便于维护。但是这样就增加了工作量，所以建议还是少用hack和过滤器，能不兼容的地方就不兼容，考虑业务需求的情况下合理使用兼容。而至于多浏览器覆盖，我认为这个是可以合理考虑的，而且经常用也未尝不可，毕竟各大浏览器用户所占份额均不小 ，这点不容忽视。</li>
 <li><strong>渐进增强：</strong>针对低版本浏览器进行构建页面，保证最基本的功能，然后在针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</li>
 <li><strong>优雅降级：</strong>一开始就针对高版本浏览器进行页面构建，然后再针对低版本浏览器进行兼容。<br><strong>区别：</strong>优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。<br><strong>使用策略：</strong>也许有各种fallback方案可以保证完全兼容性各个浏览器，但依然不能保证低端浏览器的使用体验，顶多是看起来各个浏览器都一样了。因此，现在的设计和开发的策略是浏览器分级支持。优先为高端浏览器设计，同时考虑低端浏览器的退化方案。甚至有些复杂的应用可以拒绝ie6，提示用户使用高端浏览器。<br>参考：<a href="http://www.cnblogs.com/mofish/p/3822879.html" target="_blank" rel="external">优雅降级和渐进增强的区别</a></li>
 </ul>
-<p>###5、reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?</p>
-<ul>
+<h2 id="5、reset-css和normalize-css分别是做什么的？为什么推荐使用-nomalize-css"><a href="#5、reset-css和normalize-css分别是做什么的？为什么推荐使用-nomalize-css" class="headerlink" title="5、reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?"></a>5、reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?</h2><ul>
 <li><strong>reset.css</strong>：是通过重新定义标签样式，把浏览器的默认样式覆盖掉，以便保持个浏览器渲染的一致性。</li>
 <li><strong>normalize.css</strong>：是reset.css的替代方案，保护有用的浏览器默认样式，修改浏览器自身bug，优化可用性。</li>
 <li><strong>为什么推荐使用 nomalize.css：</strong>Normalize 相对「平和」，注重通用的方案，重置掉该重置的样式，保留有用的 user agent 样式，同时进行一些 bug 的修复，这点是 reset 所缺乏的；Reset 相对「暴力」，不管你有没有用，统统重置成一样的效果，且影响的范围很大，讲求跨浏览器的一致性。</li>
 <li><strong>其他：</strong><br>（1）、Normalize.css 保护了有价值的默认值；reset通过为几乎所有的元素施加默认样式，强行使得元素有相同的视觉效果。相比之下，Normalize.css保持了许多默认的浏览器样式。这就意味着你不用再为所有公共的排版元素重新设置样式。当一个元素在不同的浏览器中有不同的默认值时，Normalize.css会力求让这些样式保持一致并尽可能与现代标准相符合。<br>（2）、Normalize.css 修复了浏览器的bug；它修复了常见的桌面端和移动端浏览器的bug。这往往超出了Reset所能做到的范畴。关于这一点，Normalize.css修复的问题包含了HTML5元素的显示设置、预格式化文字的font-size问题、在IE9中SVG的溢出、许多出现在各浏览器和操作系统中的与表单相关的bug。<br>（3）、Normalize.css 不会让调试工具变的杂乱；使用Reset最让人困扰的地方莫过于在浏览器调试工具中大段大段的继承链。在Normalize.css中就不会有这样的问题，因为在我们的准则中对多选择器的使用时非常谨慎的，我们仅会有目的地对目标元素设置样式。<br>（4）、Normalize.css 是模块化的；这个项目已经被拆分为多个相关却又独立的部分，这使得你能够很容易也很清楚地知道哪些元素被设置了特定的值。因此这能让你自己选择性地移除掉某些永远不会用到部分（比如表单的一般化）。<br>（5）、Normalize.css 拥有详细的文档；Normalize.css的代码基于详细而全面的跨浏览器研究与测试。这个文件中拥有详细的代码说明并在<a href="https://github.com/necolas/normalize.css/wiki" target="_blank" rel="external">Github Wiki</a>中有进一步的说明。这意味着你可以找到每一行代码具体完成了什么工作、为什么要写这句代码、浏览器之间的差异，并且你可以更容易地进行自己的测试。</li>
 </ul>
-<p>###6、IE盒模型和标准盒模型有什么区别? 怎样使 IE678使用标准盒模型?box-sizing:border-box有什么作用</p>
-<ul>
+<h2 id="6、IE盒模型和标准盒模型有什么区别-怎样使-IE678使用标准盒模型-box-sizing-border-box有什么作用"><a href="#6、IE盒模型和标准盒模型有什么区别-怎样使-IE678使用标准盒模型-box-sizing-border-box有什么作用" class="headerlink" title="6、IE盒模型和标准盒模型有什么区别? 怎样使 IE678使用标准盒模型?box-sizing:border-box有什么作用"></a>6、IE盒模型和标准盒模型有什么区别? 怎样使 IE678使用标准盒模型?box-sizing:border-box有什么作用</h2><ul>
 <li><strong>区别：</strong>W3C标准盒子模型padding、border所占的空间不在width、height范围内，大家俗称的IE的盒模型width包括content尺寸＋padding＋border；</li>
 <li>IE678不添加doctype声明时（怪异模式）使用IE盒模型，要想使IE678使用标准盒模型，给IE678添加doctype变为标准模式即可。</li>
 <li><strong>box-sizing:border-box</strong>作用是为元素设定的任何内边距及边框均在设定的宽度和高度中进行绘制，也就是 所有元素输入的height及width数值即为content+padding+border的height及width的数值），这样可方便计算</li>
@@ -377,12 +400,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/25/task13/">task13</a></p>
+        <p><span>本文标题:</span><a href="/2016/08/25/task13/">浏览器兼容</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lilyzff</a></p>
         <p><span>发布时间:</span>2016-08-25, 21:23:41</p>
-        <p><span>最后更新:</span>2016-08-25, 22:41:07</p>
+        <p><span>最后更新:</span>2016-08-26, 20:28:27</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/25/task13/" title="task13">http://lilyzff.htmhub.com/2016/08/25/task13/</a>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/25/task13/" title="浏览器兼容">http://lilyzff.htmhub.com/2016/08/25/task13/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lilyzff.htmhub.com/2016/08/25/task13/　　作者: lilyzff" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -410,7 +433,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器兼容"><span class="toc-number">1.</span> <span class="toc-text">浏览器兼容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-如何调试-IE-浏览器？"><span class="toc-number">1.1.</span> <span class="toc-text">1.如何调试 IE 浏览器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-什么是CSS-hack？在-CSS-和-HTML里如何写-hack？在-CSS-中-ie6、ie7的-hack-方式？"><span class="toc-number">1.2.</span> <span class="toc-text">2.什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、列举几种浏览器兼容问题"><span class="toc-number">1.3.</span> <span class="toc-text">3、列举几种浏览器兼容问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？"><span class="toc-number">1.4.</span> <span class="toc-text">4、针对兼容、多浏览器覆盖有什么看法？渐进增强和优雅降级是什么意思？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、reset-css和normalize-css分别是做什么的？为什么推荐使用-nomalize-css"><span class="toc-number">1.5.</span> <span class="toc-text">5、reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、IE盒模型和标准盒模型有什么区别-怎样使-IE678使用标准盒模型-box-sizing-border-box有什么作用"><span class="toc-number">1.6.</span> <span class="toc-text">6、IE盒模型和标准盒模型有什么区别? 怎样使 IE678使用标准盒模型?box-sizing:border-box有什么作用</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -446,7 +469,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"task13　| Lily`s Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"浏览器兼容　| Lily`s Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -478,7 +501,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/task13/">task13</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/task13/">浏览器兼容</a></li></ul>
 
 
 
