@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[task13]]></title>
+      <url>http://lilyzff.htmhub.com/2016/08/25/task13/</url>
+      <content type="html"><![CDATA[<p>###1.如何调试 IE 浏览器？<br>（1）、IE7及以上版本有调试台，可以按F12启动：<br>优点：权威；缺点：不方便，正常情况下只能安装一个版本IE。<br>（2）、模拟器模拟不同版本IE，微软官方有诸如virtual pc、Expression Web SuperPreview等<br>优点：集成需要的所有版本IE；缺点：效果是模拟出来的，权威性不足。</p>
+<p><img src="http://lilyzff.htmhub.com/images/ietest.png" alt="IETester.png"><br>（3）、虚拟机，安装带有不同版本IE的系统：<br>优点：权威，而且多版本均能调试；缺点：占空间，占内存，但是不太影响使用。</p>
+<p>###2.什么是CSS hack？在 CSS 和 HTML里如何写 hack？在 CSS 中 ie6、ie7的 hack 方式？</p>
+<ul>
+<li><strong>CSS hack</strong>由于不同厂商的浏览器，比如Internet Explorer,Safari,Mozilla Firefox,Chrome等，或者是同一厂商的浏览器的不同版本，如IE6和IE7，对CSS的解析认识不完全一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。这时我们为了获得一致的CSS效果，就利用一些BUG或者特定样式去达到一样的效果，这个coding过程，我们称之为CSS hack。</li>
+<li><strong>在 CSS 和 HTML里如何写 hack：</strong>CSS Hack大致有3种表现形式，<strong>CSS属性前缀法</strong>、<strong>选择器前缀法</strong>以及<strong>IE条件注释法</strong>（即HTML头部引用if IE）Hack，实际项目中CSS Hack大部分是针对IE浏览器不同版本之间的表现差异而引入的。<br><strong>1、CSS属性前缀法:</strong>由于IE发展较早，早期版本对于CSS的解析有部分没加严格限制，成为了历史遗留问题，利用这些BUG可以对某些CSS属性写CSS hack以达到效果<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.hack &#123;</div><div class="line"> color: silver; /* 所有浏览器 */</div><div class="line"> color: yellow !important; /* 除IE6外所有浏览器 */ </div><div class="line">*color: red; /* IE6,IE7 */ </div><div class="line">+color: green; /* IE6,IE7 */</div><div class="line"> _color: blue; /* 只有IE6 */</div><div class="line"> color: gray\9; /* IE6,IE7,IE8,IE9,IE10 */</div><div class="line"> color: pink\0; /* IE8,IE9,IE10 */</div><div class="line"> color: purple\9\0; /* IE9,IE10 */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>2、选择器前缀法：</strong>选择器前缀法是针对一些页面表现不一致或者需要特殊对待的浏览器，在CSS选择器前加上一些只有某些特定浏览器才能识别的前缀进行hack。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*html #selector &#123;&#125; /* 只对IE6生效 */</div><div class="line"> *+html #selector &#123;&#125; /* 只对IE7生效 */</div><div class="line"> @media screen\9 &#123; .selector &#123; property: value; &#125; &#125; /* 只对IE6、7生效 */</div><div class="line"> @media \0screen &#123;body &#123; background: red; &#125;&#125; /* 只对IE8生效 */</div><div class="line"> @media \0screen\,screen\9&#123;body &#123; background: blue; &#125;&#125; /* 只对IE6，IE7，IE8有效 */</div><div class="line"> @media screen\0 &#123;body &#123; background: green; &#125;&#125; /* 只对IE8，IE9，IE10生效 */</div><div class="line"> @media screen and (min-width:0\0) &#123;body &#123; background: gray; &#125;&#125; /* 只对IE9，IE10生效 */</div></pre></td></tr></table></figure></p>
+<p><strong>3、IE条件注释法（即HTML条件注释hack）：</strong>（注：IE10+已经不再支持条件注释）这类hack不仅对CSS生效，对写在判断语句里面的所有代码都会生效<br>只在IE下显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if IE]&gt;</div><div class="line"> &lt;p&gt;这段代码只有IE浏览器识别&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p>只在IE6显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if IE 6]&gt; </div><div class="line">&lt;p&gt;这段文字只在IE6浏览器显示&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p>只在IE6以上版本显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if gte IE 6]&gt;</div><div class="line">&lt;p&gt;这段文字只在IE6及以上版本IE浏览器显示&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p>只在IE8上不生效：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt; !--[if ! IE 8 ]&gt;</div><div class="line">&lt;p&gt;如果不是IE8，则生效&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p>非IE生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if ! IE]&gt;</div><div class="line">&lt;p&gt;如果不是IE，则生效&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>在 CSS 中 ie6、ie7的 hack 方式：</strong><br>属性前缀法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.box&#123; *color: red; /* IE6,IE7 */  &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>选择器前缀法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@media screen\9 &#123; .selector &#123; property: value; &#125; &#125; /* 只对IE6、7生效 */</div></pre></td></tr></table></figure></p>
+<p>IE条件注释法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if gte IE 6]&gt;</div><div class="line">&lt;p&gt;这段文字只在IE6及以上版本IE浏览器显示&lt;/p&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p><a href="http://blog.csdn.net/freshlover/article/details/12132801" target="_blank" rel="external">史上最全的CSS hack方式一览</a></p>
+<p>###3、列举几种浏览器兼容问题</p>
+<ul>
+<li><strong>不同浏览器的标签默认的margin和padding不同</strong><br>解决方法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#123; margin: 0; padding: 0;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>min-height（min-width、max-width、max-height）</strong><br>方法一：利用IE6不识别!important来实现：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.selector &#123; </div><div class="line">height:auto !important; </div><div class="line">height:100px; </div><div class="line">min-height:100px;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>方法二：overflow:visible属性实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.selector &#123; </div><div class="line">min-height:100px; </div><div class="line">_height:100px;</div><div class="line"> overflow:visible; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p><strong>透明度(IE8及以下版本不支持opacity属性，可使用filter:alpha(opacity=50)替代：)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">div &#123; </div><div class="line">background: red;</div><div class="line"> opacity: 0.5; </div><div class="line">filter: alpha(opacity=50); /* 兼容IE8即一下 */</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>inline-block</strong>对于IE6、IE7并不支持，解决方法是优雅降级，将display属性值在IE6、7下写为display: inline<br>解决方式一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*display: inline; /* 将块级元素设置为内联对象呈递。*/</div><div class="line">*zoom: 1; /* 触发haslayout */</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解决方式二<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div&#123; </div><div class="line">display: inline-block; </div><div class="line">*display: inline; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###4、针对兼容、多浏览器覆盖有什么看法？<strong>渐进增强</strong>和<strong>优雅降级</strong>是什么意思？</p>
+<ul>
+<li>CSS作为一种语言，设计成有很强的向前兼容性，无论是浏览器覆盖还是兼容都是解决bug的很好的方式，但是不应该过分信赖于hack和过滤器，因为并非掌握hack越多，自己的水平就越高。各个浏览器，各个版本，以及各个网页html千差万别，动一发则牵全身，所以要明智且受控制地应用hack和过滤器。之所以这么说，是因为如果CSS文件短小且简单，并且只需要应用很少个hack的话，那么放在主CSS文件中加以注释说明可能是安全的；但是之前说过，hack往往过于复杂，使代码很难阅读，所以最好将他们放在他们自己的样式表中，不但容易阅读，而且便于维护。但是这样就增加了工作量，所以建议还是少用hack和过滤器，能不兼容的地方就不兼容，考虑业务需求的情况下合理使用兼容。而至于多浏览器覆盖，我认为这个是可以合理考虑的，而且经常用也未尝不可，毕竟各大浏览器用户所占份额均不小 ，这点不容忽视。</li>
+<li><strong>渐进增强：</strong>针对低版本浏览器进行构建页面，保证最基本的功能，然后在针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</li>
+<li><strong>优雅降级：</strong>一开始就针对高版本浏览器进行页面构建，然后再针对低版本浏览器进行兼容。<br><strong>区别：</strong>优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。<br><strong>使用策略：</strong>也许有各种fallback方案可以保证完全兼容性各个浏览器，但依然不能保证低端浏览器的使用体验，顶多是看起来各个浏览器都一样了。因此，现在的设计和开发的策略是浏览器分级支持。优先为高端浏览器设计，同时考虑低端浏览器的退化方案。甚至有些复杂的应用可以拒绝ie6，提示用户使用高端浏览器。<br>参考：<a href="http://www.cnblogs.com/mofish/p/3822879.html" target="_blank" rel="external">优雅降级和渐进增强的区别</a></li>
+</ul>
+<p>###5、reset.css和normalize.css分别是做什么的？为什么推荐使用 nomalize.css?</p>
+<ul>
+<li><strong>reset.css</strong>：是通过重新定义标签样式，把浏览器的默认样式覆盖掉，以便保持个浏览器渲染的一致性。</li>
+<li><strong>normalize.css</strong>：是reset.css的替代方案，保护有用的浏览器默认样式，修改浏览器自身bug，优化可用性。</li>
+<li><strong>为什么推荐使用 nomalize.css：</strong>Normalize 相对「平和」，注重通用的方案，重置掉该重置的样式，保留有用的 user agent 样式，同时进行一些 bug 的修复，这点是 reset 所缺乏的；Reset 相对「暴力」，不管你有没有用，统统重置成一样的效果，且影响的范围很大，讲求跨浏览器的一致性。</li>
+<li><strong>其他：</strong><br>（1）、Normalize.css 保护了有价值的默认值；reset通过为几乎所有的元素施加默认样式，强行使得元素有相同的视觉效果。相比之下，Normalize.css保持了许多默认的浏览器样式。这就意味着你不用再为所有公共的排版元素重新设置样式。当一个元素在不同的浏览器中有不同的默认值时，Normalize.css会力求让这些样式保持一致并尽可能与现代标准相符合。<br>（2）、Normalize.css 修复了浏览器的bug；它修复了常见的桌面端和移动端浏览器的bug。这往往超出了Reset所能做到的范畴。关于这一点，Normalize.css修复的问题包含了HTML5元素的显示设置、预格式化文字的font-size问题、在IE9中SVG的溢出、许多出现在各浏览器和操作系统中的与表单相关的bug。<br>（3）、Normalize.css 不会让调试工具变的杂乱；使用Reset最让人困扰的地方莫过于在浏览器调试工具中大段大段的继承链。在Normalize.css中就不会有这样的问题，因为在我们的准则中对多选择器的使用时非常谨慎的，我们仅会有目的地对目标元素设置样式。<br>（4）、Normalize.css 是模块化的；这个项目已经被拆分为多个相关却又独立的部分，这使得你能够很容易也很清楚地知道哪些元素被设置了特定的值。因此这能让你自己选择性地移除掉某些永远不会用到部分（比如表单的一般化）。<br>（5）、Normalize.css 拥有详细的文档；Normalize.css的代码基于详细而全面的跨浏览器研究与测试。这个文件中拥有详细的代码说明并在<a href="https://github.com/necolas/normalize.css/wiki" target="_blank" rel="external">Github Wiki</a>中有进一步的说明。这意味着你可以找到每一行代码具体完成了什么工作、为什么要写这句代码、浏览器之间的差异，并且你可以更容易地进行自己的测试。</li>
+</ul>
+<p>###6、IE盒模型和标准盒模型有什么区别? 怎样使 IE678使用标准盒模型?box-sizing:border-box有什么作用</p>
+<ul>
+<li><strong>区别：</strong>W3C标准盒子模型padding、border所占的空间不在width、height范围内，大家俗称的IE的盒模型width包括content尺寸＋padding＋border；</li>
+<li>IE678不添加doctype声明时（怪异模式）使用IE盒模型，要想使IE678使用标准盒模型，给IE678添加doctype变为标准模式即可。</li>
+<li><strong>box-sizing:border-box</strong>作用是为元素设定的任何内边距及边框均在设定的宽度和高度中进行绘制，也就是 所有元素输入的height及width数值即为content+padding+border的height及width的数值），这样可方便计算</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://lilyzff.htmhub.com/2016/08/25/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    </entry>
+    
+  
+  
+    
+  
+</search>
