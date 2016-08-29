@@ -29,15 +29,85 @@
 <p><strong>FOUC(Flash Of Unstyled Content)</strong>它指的是：逐步加载无样式的内容，等CSS加载完成后页面突然展现的样子。也就是说，浏览器加载了无样式内容，又突然解析到了样式，会对页面进行重新的渲染，这时候就会产生FOUC现象。在IE浏览器中，如果把样式放在底部，某些场景下（点击链接、输入URL、使用书签进入等等），就会出现FOUC现象。对于 Firefox 则会一直表现出 FOUC。</p>
 <h2 id="3、async和defer的作用是什么？有什么区别"><a href="#3、async和defer的作用是什么？有什么区别" class="headerlink" title="3、async和defer的作用是什么？有什么区别"></a>3、async和defer的作用是什么？有什么区别</h2><p><strong>作用：</strong>async和defer是 <code>&lt;script&gt;</code> 标签的两个属性，用于指定脚本文件的加载方式。正常情况下，浏览器从上到下解析HTML文件，当解析到 <code>&lt;script&gt;</code> 标签的时候会立即下载脚本并执行，只有当加载执行脚本之后浏览器才能继续解析 <code>&lt;script&gt;</code> 标签之后的文档内容，而async和defer属性就是改变这种加载方式的作用。<br><strong>区别：</strong></p>
 <ul>
-<li><strong>async</strong>：表示应该立即下载脚本，不影响页面其他操作诸如其他脚本的下载，<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">* **defer**：表示脚本可以延迟到文档完全被解析之后再执行。只对外部脚本文件有效，IE7及更早版本对嵌入脚本也支持这个属性。```defer```脚本延迟到文档完全解析渲染后按照顺序执行。</div><div class="line">详细资料参考：[script的defer和async](http://ued.ctrip.com/blog/script-defer-and-async.html)</div><div class="line"></div><div class="line">## 4、简述网页的渲染机制</div><div class="line"></div><div class="line">* 首先，渲染引擎首先通过网络获得所请求文档的内容;</div><div class="line">* 渲染引擎在获得内容之后,**解析HTML标签, 构建DOM树**，将标签转化为内容树中的DOM节点；接着解析外部CSS文件及style标签中的样式信息为CSSOM树</div><div class="line">* 把DOM和CSSOM组合成** 渲染树 (render tree)**。</div><div class="line">* **布局render树**，在render树的基础上进行布局过程，它将确定每个节点在屏幕上的确切坐标</div><div class="line">* **绘制render树**,遍历render树，并使用UI后端层绘制每个节点。即在渲染树的基础上进行布局, 计算每个节点的几何结构把每个节点绘制到屏幕上 (painting)</div><div class="line">详细资料参考：[浏览器内部工作原理](http://kb.cnblogs.com/page/129756/)</div><div class="line"></div><div class="line">## 5、JavaScript 定义了几种数据类型? 哪些是简单类型?哪些是复杂类型?</div><div class="line">Javascript定义了5种简单数据类型，1种复杂数据类型</div><div class="line">* **简单数据类型**</div><div class="line">（1）、**Undefined类型**，Undefined 类型只有一个值，即特殊的undefined。在使用var 声明变量但未对其加以初始化时，这个变量的值就是undefined</div><div class="line">（2）、**Null 类型**也是只有一个值的数据类型，这个特殊的值是null。从逻辑角度来看，null 值表示一个空对象指针</div><div class="line">（3）、**Boolean类型**，该类型只有两个字面值：true 和false。</div><div class="line">（4）、**Number类型**,整数：十进制，八进制（0开头），十六进制（0x开头）；浮点数：带小数点的数;NaN（not a number）：意为非数值，但是其类型本身就是数值</div><div class="line">（5）、**String类型**，String 类型用于表示由零或多个16 位Unicode 字符组成的字符序列，即字符串。</div><div class="line">* **复杂数据类型**</div><div class="line">**object**对象其实就是一组数据和功能的集合</div><div class="line"></div><div class="line">## 6、NaN、undefined、null分别代表什么?</div><div class="line">**NaN**，即非数值（Not a Number）是一个特殊的数值，这个数值用于表示一个本来要返回数值的操作数未返回数值的情况（这样就不会抛出错误了）。</div><div class="line">NaN 本身有两个非同寻常的特点。首先，任何涉及NaN 的操作（例如NaN/10）都会返回NaN，这个特点在多步计算中有可能导致问题。其次，NaN 与任何值都不相等，包括NaN 本身。</div><div class="line">**undefined**，在使用var 声明变量但未对其加以初始化时，这个变量的值就是undefined</div><div class="line">**null**值表示一个空对象指针，作为函数的参数，表示该函数的参数是一个没有任何内容的对象。作为对象原型链的终点。</div><div class="line"></div><div class="line">## 7、typeof和instanceof的作用和区别?</div><div class="line">**typeof作用**是检测变量的数据类型</div><div class="line">下表总结了 typeof 可能的返回值</div><div class="line"></div><div class="line">类型|结构</div><div class="line">--|--</div><div class="line">Undefined|&quot;undefined&quot;</div><div class="line">Null|&quot;object&quot;</div><div class="line">Boolean(布尔值)|&quot;boolean&quot;</div><div class="line">Number(数值)|	&quot;number&quot;</div><div class="line">String(字符串)|&quot;string&quot;</div><div class="line">Symbol (ECMAScript 6 新增)|&quot;symbol&quot;</div><div class="line">函数对象 (implements [[Call]] in ECMA-262 terms)|&quot;function&quot;</div><div class="line">任何其他对象|	&quot;object&quot;</div><div class="line">宿主对象(JS环境提供的，比如浏览器)|*Implementation-dependent*</div><div class="line">常规用法：</div><div class="line"></div><div class="line">![demo1.png](http://upload-images.jianshu.io/upload_images/2469544-7aec15430ffc3c09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">**instanceof** 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。</div><div class="line">**区别：**typeof——确定一个值是哪种基本类型。instanceof——确定一个值是哪种引用类型。</div><div class="line">参考资料：[typeof](https://developer.mozilla.org/zhCN/docs/JavaScript/Reference/Operators/typeof)、[instanceof](https://developer.mozilla.org/zhCN/docs/Web/JavaScript/Reference/Operators/instanceof)</div><div class="line"></div><div class="line">## 代码</div><div class="line">** 1、完成如下代码判断一个变量是否是数字、字符串、布尔、函数 （难度*）**</div></pre></td></tr></table></figure></li>
+<li><strong>async</strong>：表示应该立即下载脚本，不影响页面其他操作诸如其他脚本的下载， <code>async</code>属性会使加载和渲染文档元素的过程和JS脚本加载和执行并行进行（即异步）。<code>async</code> 只对外部脚本文件有效。 <code>async</code>不保证按照指定顺序执行JS脚本，第二个JS可能会比第一个JS文件先执行。所以多个JS文件若设置此属性应避免依赖。</li>
+<li><strong>defer</strong>：表示脚本可以延迟到文档完全被解析之后再执行。只对外部脚本文件有效，IE7及更早版本对嵌入脚本也支持这个属性。<code>defer</code> 脚本延迟到文档完全解析渲染后按照顺序执行。<br>详细资料参考：<a href="http://ued.ctrip.com/blog/script-defer-and-async.html" target="_blank" rel="external">script的defer和async</a></li>
 </ul>
-<p>function isNumber(el){<br>        if(typeof el===”number”){<br>            return true;<br>        }else{<br>            return false;<br>        }<br>    }</p>
-<p>function isString(el){<br>        if(typeof el===”string”){<br>            return true;<br>        }else{<br>            return false;<br>        }<br>    }<br>    function isBoolean(el){<br>        if(typeof el === “boolean”){<br>            return true;<br>        }else{<br>            return false;<br>        }<br>    }<br>    function isFunction(el){<br>        if(typeof el === “function”){<br>            return true;<br>        }else{<br>            return false;<br>        }<br>    }<br>var a = 2,<br> b = “jirengu”,<br> c = false;<br>alert( isNumber(a) ); //true<br>alert( isString(a) ); //false<br>alert( isString(b) ); //true<br>alert( isBoolean(c) ); //true<br>alert( isFunction(a)); //false<br>alert( isFunction( isNumber ) ); //true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**2、以下代码的输出结果是?**</div></pre></td></tr></table></figure></p>
-<p>console.log(1+1); //结果为2，数值之间的加法运算<br>console.log(“2”+”4”);//结果为24，字符串之间的连接运算<br>console.log(2+”4”); //结果为”24”，有一个运算子是字符串，则执行字符串连接运算。<br>console.log(+new Date());//结果为1472452663049<br>console.log(+”4”);//结果为4<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**3、以下代码的输出结果是?**</div></pre></td></tr></table></figure></p>
-<p>var a = 1;<br>a+++a;//结果是3<br>typeof a+2;//结果是”number2”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">优先级判断参考：[运算符优先级](https://developer.mozilla.org/zhCN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)</div><div class="line"></div><div class="line">**4、遍历数组，把数组里的打印数组每一项的平方 **</div></pre></td></tr></table></figure></p>
-<p>var arr = [3,4,5];<br>for(var i=0;i<arr.length;i++){ console.log(arr[i]*arr[i])="" }="" <figure="" class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**5、遍历 JSON, 打印里面的值**</div></pre></td></tr></table></arr.length;i++){></p>
-<p>var obj = {<br> name: ‘hunger’,<br> sex: ‘male’,<br> age: 28}<br> for(i in obj){<br>    console.log(obj[i]);<br> }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">![demo3.png](http://upload-images.jianshu.io/upload_images/2469544-3988289fc23ccd6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line"></div><div class="line">**6、下面代码的输出是? 为什么**</div></pre></td></tr></table></figure></p>
-<p>console.log(a);<br>var a = 1;<br>console.log(a);<br>console.log(b);<br>```</p>
+<h2 id="4、简述网页的渲染机制"><a href="#4、简述网页的渲染机制" class="headerlink" title="4、简述网页的渲染机制"></a>4、简述网页的渲染机制</h2><ul>
+<li>首先，渲染引擎首先通过网络获得所请求文档的内容;</li>
+<li>渲染引擎在获得内容之后,<strong>解析HTML标签, 构建DOM树</strong>，将标签转化为内容树中的DOM节点；接着解析外部CSS文件及style标签中的样式信息为CSSOM树</li>
+<li>把DOM和CSSOM组合成<strong> 渲染树 (render tree)</strong>。</li>
+<li><strong>布局render树</strong>，在render树的基础上进行布局过程，它将确定每个节点在屏幕上的确切坐标</li>
+<li><strong>绘制render树</strong>,遍历render树，并使用UI后端层绘制每个节点。即在渲染树的基础上进行布局, 计算每个节点的几何结构把每个节点绘制到屏幕上 (painting)<br>详细资料参考：<a href="http://kb.cnblogs.com/page/129756/" target="_blank" rel="external">浏览器内部工作原理</a></li>
+</ul>
+<h2 id="5、JavaScript-定义了几种数据类型-哪些是简单类型-哪些是复杂类型"><a href="#5、JavaScript-定义了几种数据类型-哪些是简单类型-哪些是复杂类型" class="headerlink" title="5、JavaScript 定义了几种数据类型? 哪些是简单类型?哪些是复杂类型?"></a>5、JavaScript 定义了几种数据类型? 哪些是简单类型?哪些是复杂类型?</h2><p>Javascript定义了5种简单数据类型，1种复杂数据类型</p>
+<ul>
+<li><strong>简单数据类型</strong><br>（1）、<strong>Undefined类型</strong>，Undefined 类型只有一个值，即特殊的undefined。在使用var 声明变量但未对其加以初始化时，这个变量的值就是undefined<br>（2）、<strong>Null 类型</strong>也是只有一个值的数据类型，这个特殊的值是null。从逻辑角度来看，null 值表示一个空对象指针<br>（3）、<strong>Boolean类型</strong>，该类型只有两个字面值：true 和false。<br>（4）、<strong>Number类型</strong>,整数：十进制，八进制（0开头），十六进制（0x开头）；浮点数：带小数点的数;NaN（not a number）：意为非数值，但是其类型本身就是数值<br>（5）、<strong>String类型</strong>，String 类型用于表示由零或多个16 位Unicode 字符组成的字符序列，即字符串。</li>
+<li><strong>复杂数据类型</strong><br><strong>object</strong>对象其实就是一组数据和功能的集合</li>
+</ul>
+<h2 id="6、NaN、undefined、null分别代表什么"><a href="#6、NaN、undefined、null分别代表什么" class="headerlink" title="6、NaN、undefined、null分别代表什么?"></a>6、NaN、undefined、null分别代表什么?</h2><p><strong>NaN</strong>，即非数值（Not a Number）是一个特殊的数值，这个数值用于表示一个本来要返回数值的操作数未返回数值的情况（这样就不会抛出错误了）。<br>NaN 本身有两个非同寻常的特点。首先，任何涉及NaN 的操作（例如NaN/10）都会返回NaN，这个特点在多步计算中有可能导致问题。其次，NaN 与任何值都不相等，包括NaN 本身。<br><strong>undefined</strong>，在使用var 声明变量但未对其加以初始化时，这个变量的值就是undefined<br><strong>null</strong>值表示一个空对象指针，作为函数的参数，表示该函数的参数是一个没有任何内容的对象。作为对象原型链的终点。</p>
+<h2 id="7、typeof和instanceof的作用和区别"><a href="#7、typeof和instanceof的作用和区别" class="headerlink" title="7、typeof和instanceof的作用和区别?"></a>7、typeof和instanceof的作用和区别?</h2><p><strong>typeof作用</strong>是检测变量的数据类型<br>下表总结了 typeof 可能的返回值</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>结构</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Undefined</td>
+<td>“undefined”</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>“object”</td>
+</tr>
+<tr>
+<td>Boolean(布尔值)</td>
+<td>“boolean”</td>
+</tr>
+<tr>
+<td>Number(数值)</td>
+<td>“number”</td>
+</tr>
+<tr>
+<td>String(字符串)</td>
+<td>“string”</td>
+</tr>
+<tr>
+<td>Symbol (ECMAScript 6 新增)</td>
+<td>“symbol”</td>
+</tr>
+<tr>
+<td>函数对象 (implements [[Call]] in ECMA-262 terms)</td>
+<td>“function”</td>
+</tr>
+<tr>
+<td>任何其他对象</td>
+<td>“object”</td>
+</tr>
+<tr>
+<td>宿主对象(JS环境提供的，比如浏览器)</td>
+<td><em>Implementation-dependent</em></td>
+</tr>
+</tbody>
+</table>
+<p>常规用法：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2469544-7aec15430ffc3c09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="demo1.png"><br><strong>instanceof</strong> 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。<br><strong>区别：</strong>typeof——确定一个值是哪种基本类型。instanceof——确定一个值是哪种引用类型。<br>参考资料：<a href="https://developer.mozilla.org/zhCN/docs/JavaScript/Reference/Operators/typeof" target="_blank" rel="external">typeof</a>、<a href="https://developer.mozilla.org/zhCN/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="external">instanceof</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><strong> 1、完成如下代码判断一个变量是否是数字、字符串、布尔、函数 （难度*）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">function isNumber(el)&#123;</div><div class="line">        if(typeof el===&quot;number&quot;)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;else&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">function isString(el)&#123;</div><div class="line">        if(typeof el===&quot;string&quot;)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;else&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    function isBoolean(el)&#123;</div><div class="line">        if(typeof el === &quot;boolean&quot;)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;else&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    function isFunction(el)&#123;</div><div class="line">        if(typeof el === &quot;function&quot;)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;else&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">var a = 2,</div><div class="line"> b = &quot;jirengu&quot;,</div><div class="line"> c = false;</div><div class="line">alert( isNumber(a) ); //true</div><div class="line">alert( isString(a) ); //false</div><div class="line">alert( isString(b) ); //true</div><div class="line">alert( isBoolean(c) ); //true</div><div class="line">alert( isFunction(a)); //false</div><div class="line">alert( isFunction( isNumber ) ); //true</div></pre></td></tr></table></figure>
+<p><strong>2、以下代码的输出结果是?</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(1+1); //结果为2，数值之间的加法运算</div><div class="line">console.log(&quot;2&quot;+&quot;4&quot;);//结果为24，字符串之间的连接运算</div><div class="line">console.log(2+&quot;4&quot;); //结果为&quot;24&quot;，有一个运算子是字符串，则执行字符串连接运算。</div><div class="line">console.log(+new Date());//结果为1472452663049</div><div class="line">console.log(+&quot;4&quot;);//结果为4</div></pre></td></tr></table></figure>
+<p><strong>3、以下代码的输出结果是?</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">a+++a;//结果是3</div><div class="line">typeof a+2;//结果是&quot;number2&quot;</div></pre></td></tr></table></figure>
+<p>优先级判断参考：<a href="https://developer.mozilla.org/zhCN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" rel="external">运算符优先级</a></p>
+<p><strong>4、遍历数组，把数组里的打印数组每一项的平方 </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [3,4,5];</div><div class="line">for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">    console.log(arr[i]*arr[i])</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><strong>5、遍历 JSON, 打印里面的值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line"> name: &apos;hunger&apos;, </div><div class="line"> sex: &apos;male&apos;,</div><div class="line"> age: 28&#125;</div><div class="line"> for(i in obj)&#123;</div><div class="line">    console.log(obj[i]);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2469544-3988289fc23ccd6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="demo3.png"></p>
+<p><strong>6、下面代码的输出是? 为什么</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(a);</div><div class="line">var a = 1;</div><div class="line">console.log(a);</div><div class="line">console.log(b);</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/2469544-4a0b89f013a13be5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="demo2.png"><br><strong>原因：</strong>JavaScript变量会提升，第一个console.log(a)，变量a已经声明了，但是还未赋值，所以输出undefined，第二个console.log(a)里的变量a已经被赋值为1了，所以输出结果是1，最后一个console.log(b);变量b没有声明，所以报错了。</p>
 ]]></content>
     </entry>
@@ -138,12 +208,6 @@
   
     
     <entry>
-      <title><![CDATA[about]]></title>
-      <url>http://lilyzff.htmhub.com/about/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[404 Not Found：该页无法显示]]></title>
       <url>http://lilyzff.htmhub.com//404.html</url>
       <content type="html"><![CDATA[<style type="text/css">
@@ -204,6 +268,12 @@
                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                 </style>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[about]]></title>
+      <url>http://lilyzff.htmhub.com/about/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
