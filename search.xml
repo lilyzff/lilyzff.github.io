@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title><![CDATA[闭包、定时器]]></title>
+      <url>http://lilyzff.htmhub.com/2016/09/20/%E9%97%AD%E5%8C%85/</url>
+      <content type="html"><![CDATA[<p>1.什么是闭包? 有什么作用<br><a id="more"></a></p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="1-什么是闭包-有什么作用"><a href="#1-什么是闭包-有什么作用" class="headerlink" title="1.什么是闭包? 有什么作用"></a>1.什么是闭包? 有什么作用</h2><p>JavaScript高级程序设计第三版定义<strong>闭包是指有权访问另一个函数作用域中的变量的函数。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">  var n = 999;</div><div class="line">  function f2() &#123;</div><div class="line">    console.log(n);</div><div class="line">  &#125;</div><div class="line">  return f2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var result = f1();</div><div class="line">result(); // 999</div></pre></td></tr></table></figure></p>
+<p>上面代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。闭包就是函数f2，即能够读取其他函数内部变量的函数。由于在JavaScript语言中，只有函数内部的子函数才能读取内部变量，因此可以把闭包简单理解成“定义在一个函数内部的函数”。闭包最大的特点，就是它可以“记住”诞生的环境，比如f2记住了它诞生的环境f1，所以从f2可以得到f1的内部变量。在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。<br><strong>作用：</strong>1.可以读取函数内部的变量；2.让这些变量始终保持在内存中<br>参考：<a href="http://javascript.ruanyifeng.com/grammar/function.html#toc23" target="_blank" rel="external">闭包</a></p>
+<h2 id="2-setTimeout-0-有什么作用"><a href="#2-setTimeout-0-有什么作用" class="headerlink" title="2.setTimeout 0 有什么作用"></a>2.setTimeout 0 有什么作用</h2><p>setTimeout(f, 0)的作用是，尽可能早地执行指定的任务。而并不是会立刻就执行这个任务。setTimeout(f, 0)可以调整事件的发生顺序。比如，网页开发中，某个事件先发生在子元素，然后冒泡到父元素，即子元素的事件回调函数，会早于父元素的事件回调函数触发。如果，我们先让父元素的事件回调函数先发生，就要用到setTimeout(f, 0)。<br>参考：<a href="http://javascript.ruanyifeng.com/advanced/timer.html" target="_blank" rel="external">定时器</a></p>
+<h1 id="代码题"><a href="#代码题" class="headerlink" title="代码题"></a>代码题</h1><h2 id="１-下面的代码输出多少？修改代码让fnArri-输出-i。使用两种以上的方法"><a href="#１-下面的代码输出多少？修改代码让fnArri-输出-i。使用两种以上的方法" class="headerlink" title="１.下面的代码输出多少？修改代码让fnArri 输出 i。使用两种以上的方法"></a>１.下面的代码输出多少？修改代码让fnArr<a href="">i</a> 输出 i。使用<strong>两种以上的</strong>方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var fnArr = [];</div><div class="line">    for (var i = 0; i &lt; 10; i ++) &#123;</div><div class="line">        fnArr[i] =  function()&#123;</div><div class="line">            return i;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">console.log( fnArr[3]() );</div></pre></td></tr></table></figure>
+<ul>
+<li><p>方法一，赋值给立即执行函数，外部需要传递参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var fnArr = [];</div><div class="line">    for (var i = 0; i&lt;10; i++)&#123;</div><div class="line">    	fnArr[i] = (function(i)&#123;</div><div class="line">    		return function()&#123;</div><div class="line">    			return i</div><div class="line">    		&#125;</div><div class="line">    	&#125;(i))</div><div class="line">    &#125;</div><div class="line">console.log( fnArr[3]() );</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法二，赋值给立即执行函数，声明一个临时变量存储i的值，外部不需要传参。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var fnArr = [];</div><div class="line">    for (var i = 0; i&lt;10; i++)&#123;</div><div class="line">    	fnArr[i] = (function(n)&#123;</div><div class="line">    		var n = i;</div><div class="line">    		return function()&#123;</div><div class="line">    			return n</div><div class="line">    		&#125;</div><div class="line">    	&#125;())</div><div class="line">    &#125;</div><div class="line">console.log( fnArr[3]() );</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法三，把它绑定在函数上，作为函数的一部分，不需要通过闭包，得到函数就能得到值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var fnArr = []</div><div class="line">for (var i = 0; i &lt; 10; i++) &#123;</div><div class="line">  var fn = function() &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">  fn.idx = i</div><div class="line">  fnArr[i] = fn</div><div class="line">&#125;</div><div class="line">console.log(fnArr[3].idx)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-使用闭包封装一个汽车对象，可以通过如下方式获取汽车状态"><a href="#2-使用闭包封装一个汽车对象，可以通过如下方式获取汽车状态" class="headerlink" title="2.使用闭包封装一个汽车对象，可以通过如下方式获取汽车状态"></a>2.使用闭包封装一个汽车对象，可以通过如下方式获取汽车状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var Car = //todo;</div><div class="line">Car.setSpeed(30);</div><div class="line">Car.getSpeed(); //30</div><div class="line">Car.accelerate();</div><div class="line">Car.getSpeed(); //40;</div><div class="line">Car.decelerate();</div><div class="line">Car.decelerate();</div><div class="line">Car.getSpeed(); //20</div><div class="line">Car.getStatus(); // &apos;running&apos;;</div><div class="line">Car.decelerate(); </div><div class="line">Car.decelerate();</div><div class="line">Car.getStatus();  //&apos;stop&apos;;</div><div class="line">//Car.speed;  //error</div></pre></td></tr></table></figure>
+<p>实现代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var Car=(function ()&#123;</div><div class="line">	var speed = 0;</div><div class="line">	function setSpeed(num)&#123;</div><div class="line">		speed=num;</div><div class="line">	&#125;</div><div class="line">	function getSpeed()&#123;</div><div class="line">		console.log(speed)</div><div class="line">	&#125;</div><div class="line">	function accelerate()&#123;</div><div class="line">		speed + =10;</div><div class="line">	&#125;</div><div class="line">	function decelerate(k)&#123;</div><div class="line">		speed - =10;</div><div class="line">	&#125;</div><div class="line">	function getStatus()&#123;</div><div class="line">		if(speed&gt;0)&#123;</div><div class="line">			console.log(&apos;running&apos;)</div><div class="line">		&#125;else&#123;</div><div class="line">			console.log(&apos;stop&apos;)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return &#123;</div><div class="line">		setSpeed:setSpeed,</div><div class="line">		getSpeed:getSpeed,</div><div class="line">		accelerate:accelerate,</div><div class="line">		decelerate:decelerate,</div><div class="line">	    getStatus:getStatus</div><div class="line">	&#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p>输出结果如下：</p>
+<p><img src="http://lilyzff.htmhub.com/images/time3.png" alt="time3.png"></p>
+<h2 id="3-写一个函数使用setTimeout模拟setInterval的功能"><a href="#3-写一个函数使用setTimeout模拟setInterval的功能" class="headerlink" title="3.写一个函数使用setTimeout模拟setInterval的功能"></a>3.写一个函数使用setTimeout模拟setInterval的功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var i=0;</div><div class="line">function intv()&#123;</div><div class="line">	setTimeout(function()&#123;</div><div class="line">		console.log(i++);</div><div class="line">		intv();</div><div class="line">	&#125;,1000)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出结果如下：</p>
+<p><img src="http://lilyzff.htmhub.com/images/time1.png" alt="time1.png"></p>
+<h2 id="4-写一个函数，计算setTimeout平均-备注：新加-最小时间粒度"><a href="#4-写一个函数，计算setTimeout平均-备注：新加-最小时间粒度" class="headerlink" title="4.写一个函数，计算setTimeout平均[备注：新加]最小时间粒度"></a>4.写一个函数，计算setTimeout平均[备注：新加]最小时间粒度</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function getMint()&#123;</div><div class="line">	var i=0</div><div class="line">	var start = Date.now()</div><div class="line">	var clock = setTimeout(function()&#123;</div><div class="line">		i++;</div><div class="line">		if(i=== 1000)&#123;</div><div class="line">			clearTimeout(clock)</div><div class="line">			var end = Date.now()</div><div class="line">			console.log((end-start)/i)</div><div class="line">		&#125;</div><div class="line">		clock = setTimeout(arguments.callee,0)</div><div class="line">	&#125;,0)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-下面这段代码输出结果是-为什么"><a href="#5-下面这段代码输出结果是-为什么" class="headerlink" title="5.下面这段代码输出结果是? 为什么?"></a>5.下面这段代码输出结果是? 为什么?</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">setTimeout(function()&#123;</div><div class="line">    a = 2;</div><div class="line">    console.log(a);</div><div class="line">&#125;, 0);</div><div class="line">var a ;</div><div class="line">console.log(a);</div><div class="line">a = 3;</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
+<p>输出结果如下：</p>
+<p><img src="http://lilyzff.htmhub.com/images/time2.png" alt="time2.png"></p>
+<p><strong>原因：</strong>必须要等到当前脚本的同步任务和“任务队列”中已有的事件，全部处理完以后，才会执行setTimeout指定的任务，所以最后输出2。</p>
+<h2 id="6-下面这段代码输出结果是-为什么"><a href="#6-下面这段代码输出结果是-为什么" class="headerlink" title="6.下面这段代码输出结果是? 为什么?"></a>6.下面这段代码输出结果是? 为什么?</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var flag = true;</div><div class="line">setTimeout(function()&#123;</div><div class="line">    flag = false;</div><div class="line">&#125;,0)</div><div class="line">while(flag)&#123;&#125;</div><div class="line">console.log(flag);</div></pre></td></tr></table></figure>
+<p>没有输出。因为while判断为真，flag为true,为死循环，setTimeout是执行完其他代码后才执行，所以无限循环，没有输出。</p>
+<h2 id="7-下面这段代码输出？如何输出delayer-0-delayer-1…（使用闭包来实现）"><a href="#7-下面这段代码输出？如何输出delayer-0-delayer-1…（使用闭包来实现）" class="headerlink" title="7.下面这段代码输出？如何输出delayer: 0, delayer:1…（使用闭包来实现）"></a>7.下面这段代码输出？如何输出delayer: 0, delayer:1…（使用闭包来实现）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">         console.log(&apos;delayer:&apos; + i );</div><div class="line">    &#125;, 0);//setTimeout函数最后执行，此时i已经为5，for每循环一次，setTimeout都要执行一次，只不过它是等到所有的代码执行完了再执行，所以最后一共输出五个delayer: 5</div><div class="line">    console.log(i);//输出0,1,2,3,4</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)&#123;</div><div class="line">    (function()&#123;</div><div class="line">    	var n = i;</div><div class="line">    	setTimeout(function()&#123;</div><div class="line">         console.log(&apos;delayer:&apos; + n );</div><div class="line">    &#125;, 0);</div><div class="line">    	console.log(n);</div><div class="line">    &#125;)();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[时间对象、引用类型]]></title>
       <url>http://lilyzff.htmhub.com/2016/09/18/%E6%97%B6%E9%97%B4%E5%AF%B9%E8%B1%A1/</url>
       <content type="html"><![CDATA[<p>1.基础类型、复杂类型有哪些？有什么特征？<br><a id="more"></a></p>
@@ -389,6 +427,18 @@
   
     
     <entry>
+      <title><![CDATA[about]]></title>
+      <url>http://lilyzff.htmhub.com/about/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://lilyzff.htmhub.com/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[404 Not Found：该页无法显示]]></title>
       <url>http://lilyzff.htmhub.com//404.html</url>
       <content type="html"><![CDATA[<style type="text/css">
@@ -449,18 +499,6 @@
                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                 </style>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[about]]></title>
-      <url>http://lilyzff.htmhub.com/about/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://lilyzff.htmhub.com/tags/index.html</url>
-      <content type="html"></content>
     </entry>
     
   
