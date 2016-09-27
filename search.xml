@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[时间对象、引用类型]]></title>
+      <title><![CDATA[正则表达式]]></title>
       <url>http://lilyzff.htmhub.com/2016/09/27/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>1.\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$分别是什么?<br><a id="more"></a></p>
 <h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-d，-w-s-a-zA-Z0-9-b-x-3-分别是什么"><a href="#1-d，-w-s-a-zA-Z0-9-b-x-3-分别是什么" class="headerlink" title="1.\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$分别是什么?"></a>1.\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$分别是什么?</h2><ul>
