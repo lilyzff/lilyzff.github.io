@@ -36,7 +36,7 @@
 <h2 id="8-解释IE事件冒泡和DOM2事件传播机制？"><a href="#8-解释IE事件冒泡和DOM2事件传播机制？" class="headerlink" title="8.解释IE事件冒泡和DOM2事件传播机制？"></a>8.解释IE事件冒泡和DOM2事件传播机制？</h2><p><strong>IE的事件冒泡：</strong>事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的元素<br><strong>DOM2事件传播机制：</strong>DOM2级事件规定事件流包括三个阶段，事件捕获阶段，处于目标阶段，事件冒泡阶段，首先发生的是事件捕获，为截取事件提供机会，然后是实际目标接收事件，最后是冒泡阶段</p>
 <h2 id="9-如何阻止事件冒泡？-如何阻止默认事件？"><a href="#9-如何阻止事件冒泡？-如何阻止默认事件？" class="headerlink" title="9.如何阻止事件冒泡？ 如何阻止默认事件？"></a>9.如何阻止事件冒泡？ 如何阻止默认事件？</h2><p><strong>阻止事件冒泡：</strong></p>
 <ul>
-<li>DOM事件对象： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* IE事件对象：```event.cancelBubble=true</div></pre></td></tr></table></figure></li>
+<li>DOM事件对象: <figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* IE事件对象：```event.cancelBubble=true</div></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>阻止默认事件：</strong></p>
 <ul>
