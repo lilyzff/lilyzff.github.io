@@ -4,7 +4,37 @@
   
     
     <entry>
-      <title><![CDATA[DOM事件]]></title>
+      <title><![CDATA[熟悉后端语言]]></title>
+      <url>http://lilyzff.htmhub.com/2016/10/19/%E7%86%9F%E6%82%89%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/</url>
+      <content type="html"><![CDATA[<h1 id="动手题"><a href="#动手题" class="headerlink" title="动手题"></a>动手题</h1><h2 id="学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示"><a href="#学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示" class="headerlink" title="学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示"></a>学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示</h2><p><img src="http://lilyzff.htmhub.com/images/xampp.png" alt="xampp.png"></p>
+<p><img src="http://lilyzff.htmhub.com/images/phpcode.png" alt="phpcode.png"></p>
+<p><img src="http://lilyzff.htmhub.com/images/php1.png" alt="php1.png"></p>
+<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的"><a href="#1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的" class="headerlink" title="1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?"></a>1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?</h2><ul>
+<li>1.浏览器根据用户输入的域名，通过DNS服务器解析出相应的web服务器的IP地址</li>
+<li>2.浏览器请求相应IP地址下的相应动态网页资源（以PHP文件为例）</li>
+<li>3.web服务器接到请求后，找到相应目录下的php文件并交给PHP应用服务器来处理。</li>
+<li>4.如果文件中需要对数据库的数据进行处理，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据。</li>
+<li>5.PHP应用服务器将数据生成html静态代码，交给web服务器</li>
+<li>6.web服务器将收到的文件传给客户端浏览器</li>
+<li>7.浏览器解析渲染收到的文件，呈现给客户</li>
+</ul>
+<h2 id="2-常见的-WEB-服务器有哪些？"><a href="#2-常见的-WEB-服务器有哪些？" class="headerlink" title="2.常见的 WEB 服务器有哪些？"></a>2.常见的 WEB 服务器有哪些？</h2><p><strong>1.IIS</strong>  英文InternetInformationServer的缩写。它是微软公司主推的服务器。IIS的特点具有：安全性，强大，灵活。<br><strong>2.Tomcat</strong> 由Apache、Sun和其他一些公司及个人共同开发而成。Tomcat技术先进、性能稳定，而且免费，因而深受Java爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web应用服务器。<br><strong>3.Zeus</strong> 是一个运行于Unix下的非常优秀的Web服务器<br><strong>4.Nginx</strong>  不仅是一个小巧且高效的HTTP服务器，也可以做一个高效的负载均衡反向代理，通过它接受用户的请求并分发到多个Mongrel进程可以极大提高Rails应用的并发能力。<br><strong>5.Apache</strong> 是世界使用排名第一的Web服务器软件。它几乎可以运行在所有的计算机平台上。由于Apache是开源免费的，因此有很多人参与到新功能的开发设计，不断对其进行完善。Apache的特点是简单、速度快、性能稳定，并可做代理服务器来使用。<br><strong>6.Lighttpd</strong> 由德国人JanKneschke领导开发的，基于BSD许可的开源WEB服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的webserver环境。具有非常低的内存开销，CPU占用率低，效能好，以及丰富的模块等特点。支持FastCGI,CGI,Auth,输出压缩(outputcompress),URL重写,Alias等重要功能。</p>
+<h2 id="3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）"><a href="#3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）" class="headerlink" title="3.打开浏览器，在地址栏输入 http://jirengu.com 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）"></a>3.打开浏览器，在地址栏输入 <a href="http://jirengu.com" target="_blank" rel="external">http://jirengu.com</a> 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）</h2><p><strong>1.</strong>浏览器解析url,DNS查询域名对应的IP地址</p>
+<ul>
+<li>首先查看浏览器缓存</li>
+<li>若没有，查看系统缓存</li>
+<li>若没有，则查看路由器缓存</li>
+<li>若没有，则查看ISP服务商中的DNS缓存中查找</li>
+<li>若还是没有，则将从顶级域名服务器的根服务器开始递归查询</li>
+</ul>
+<p><strong>2.</strong> 浏览器得到IP地址打包http报文并发送服务器请求其所需要的资源；浏览器与服务器通过TCP/IP协议（三次握手等）来连接</p>
+<p><strong>3.</strong> 服务器接收到HTTP请求，ngnix进行相应的处理，调用对应的服务器脚本（PHP），根据用户传入的业务参数，调用数据库（MySQL）获取对应的数据，然后和php中的js、css、html融合完成页面数据的生成</p>
+<p><strong>4.</strong> 浏览器收到服务器响应后，开始下载代码（下载与渲染顺序由上到下，下载与渲染同时进行），之后解析HTML代码，构建DOM树，开始渲染页面</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[AJAX]]></title>
       <url>http://lilyzff.htmhub.com/2016/10/19/ajax/</url>
       <content type="html"><![CDATA[<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-ajax-是什么？有什么作用？"><a href="#1-ajax-是什么？有什么作用？" class="headerlink" title="1.ajax 是什么？有什么作用？"></a>1.ajax 是什么？有什么作用？</h2><ul>
 <li>ajax是 Asynchronous JavaScript and XML的缩写，是一种无需刷新整个页面就能为页面中的某一部分加载数据的技术。数据通常会以json或xml的格式进行发送。</li>
@@ -32,36 +62,6 @@
 <blockquote>
 <p>参考：<a href="https://www.zhihu.com/question/19805411" target="_blank" rel="external">怎样防止重复发送 Ajax 请求？</a></p>
 </blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[DOM事件]]></title>
-      <url>http://lilyzff.htmhub.com/2016/10/19/%E7%86%9F%E6%82%89%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/</url>
-      <content type="html"><![CDATA[<h1 id="动手题"><a href="#动手题" class="headerlink" title="动手题"></a>动手题</h1><h2 id="学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示"><a href="#学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示" class="headerlink" title="学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示"></a>学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示</h2><p><img src="http://lilyzff.htmhub.com/images/xampp.png" alt="xampp.png"></p>
-<p><img src="http://lilyzff.htmhub.com/images/phpcode.png" alt="phpcode.png"></p>
-<p><img src="http://lilyzff.htmhub.com/images/php1.png" alt="php1.png"></p>
-<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的"><a href="#1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的" class="headerlink" title="1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?"></a>1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?</h2><ul>
-<li>1.浏览器根据用户输入的域名，通过DNS服务器解析出相应的web服务器的IP地址</li>
-<li>2.浏览器请求相应IP地址下的相应动态网页资源（以PHP文件为例）</li>
-<li>3.web服务器接到请求后，找到相应目录下的php文件并交给PHP应用服务器来处理。</li>
-<li>4.如果文件中需要对数据库的数据进行处理，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据。</li>
-<li>5.PHP应用服务器将数据生成html静态代码，交给web服务器</li>
-<li>6.web服务器将收到的文件传给客户端浏览器</li>
-<li>7.浏览器解析渲染收到的文件，呈现给客户</li>
-</ul>
-<h2 id="2-常见的-WEB-服务器有哪些？"><a href="#2-常见的-WEB-服务器有哪些？" class="headerlink" title="2.常见的 WEB 服务器有哪些？"></a>2.常见的 WEB 服务器有哪些？</h2><p><strong>1.IIS</strong>  英文InternetInformationServer的缩写。它是微软公司主推的服务器。IIS的特点具有：安全性，强大，灵活。<br><strong>2.Tomcat</strong> 由Apache、Sun和其他一些公司及个人共同开发而成。Tomcat技术先进、性能稳定，而且免费，因而深受Java爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web应用服务器。<br><strong>3.Zeus</strong> 是一个运行于Unix下的非常优秀的Web服务器<br><strong>4.Nginx</strong>  不仅是一个小巧且高效的HTTP服务器，也可以做一个高效的负载均衡反向代理，通过它接受用户的请求并分发到多个Mongrel进程可以极大提高Rails应用的并发能力。<br><strong>5.Apache</strong> 是世界使用排名第一的Web服务器软件。它几乎可以运行在所有的计算机平台上。由于Apache是开源免费的，因此有很多人参与到新功能的开发设计，不断对其进行完善。Apache的特点是简单、速度快、性能稳定，并可做代理服务器来使用。<br><strong>6.Lighttpd</strong> 由德国人JanKneschke领导开发的，基于BSD许可的开源WEB服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的webserver环境。具有非常低的内存开销，CPU占用率低，效能好，以及丰富的模块等特点。支持FastCGI,CGI,Auth,输出压缩(outputcompress),URL重写,Alias等重要功能。</p>
-<h2 id="3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）"><a href="#3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）" class="headerlink" title="3.打开浏览器，在地址栏输入 http://jirengu.com 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）"></a>3.打开浏览器，在地址栏输入 <a href="http://jirengu.com" target="_blank" rel="external">http://jirengu.com</a> 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）</h2><p><strong>1.</strong>浏览器解析url,DNS查询域名对应的IP地址</p>
-<ul>
-<li>首先查看浏览器缓存</li>
-<li>若没有，查看系统缓存</li>
-<li>若没有，则查看路由器缓存</li>
-<li>若没有，则查看ISP服务商中的DNS缓存中查找</li>
-<li>若还是没有，则将从顶级域名服务器的根服务器开始递归查询</li>
-</ul>
-<p><strong>2.</strong> 浏览器得到IP地址打包http报文并发送服务器请求其所需要的资源；浏览器与服务器通过TCP/IP协议（三次握手等）来连接</p>
-<p><strong>3.</strong> 服务器接收到HTTP请求，ngnix进行相应的处理，调用对应的服务器脚本（PHP），根据用户传入的业务参数，调用数据库（MySQL）获取对应的数据，然后和php中的js、css、html融合完成页面数据的生成</p>
-<p><strong>4.</strong> 浏览器收到服务器响应后，开始下载代码（下载与渲染顺序由上到下，下载与渲染同时进行），之后解析HTML代码，构建DOM树，开始渲染页面</p>
 ]]></content>
     </entry>
     
