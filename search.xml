@@ -5,6 +5,68 @@
     
     <entry>
       <title><![CDATA[DOM事件]]></title>
+      <url>http://lilyzff.htmhub.com/2016/10/19/ajax/</url>
+      <content type="html"><![CDATA[<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-ajax-是什么？有什么作用？"><a href="#1-ajax-是什么？有什么作用？" class="headerlink" title="1.ajax 是什么？有什么作用？"></a>1.ajax 是什么？有什么作用？</h2><ul>
+<li>ajax是 Asynchronous JavaScript and XML的缩写，是一种无需刷新整个页面就能为页面中的某一部分加载数据的技术。数据通常会以json或xml的格式进行发送。</li>
+<li>作用：AJAX 在浏览器与 Web 服务器之间使用异步数据传输（HTTP 请求）从服务器获取数据，可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</li>
+</ul>
+<h2 id="2-前后端开发联调需要注意哪些事情？后端接口完成前如何-mock-数据？-npm-install-g-server-mock"><a href="#2-前后端开发联调需要注意哪些事情？后端接口完成前如何-mock-数据？-npm-install-g-server-mock" class="headerlink" title="2.前后端开发联调需要注意哪些事情？后端接口完成前如何 mock 数据？(npm install -g server-mock)"></a>2.前后端开发联调需要注意哪些事情？后端接口完成前如何 mock 数据？(npm install -g server-mock)</h2><p><strong>注意的事情：</strong></p>
+<ul>
+<li>约定好接口文档，包括请求类型get/post，和请求url，以及其他内容的格式</li>
+<li>约定好返回数据的格式</li>
+</ul>
+<p><strong>如何mock数据：</strong></p>
+<ul>
+<li>自己模拟数据来进行mock</li>
+<li>使用server-mock或者mock.js搭建模拟服务器，进行模拟测试</li>
+<li>使用XAMPP等工具，编写PHP文件来进行测试</li>
+</ul>
+<h2 id="3-点击按钮，使用-ajax-获取数据，如何在数据到来之前防止重复点击"><a href="#3-点击按钮，使用-ajax-获取数据，如何在数据到来之前防止重复点击" class="headerlink" title="3.点击按钮，使用 ajax 获取数据，如何在数据到来之前防止重复点击?"></a>3.点击按钮，使用 ajax 获取数据，如何在数据到来之前防止重复点击?</h2><ul>
+<li><p>状态锁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var onload = false;    //设置锁变量；</div><div class="line">document.querySelector(&apos;.btn&apos;).addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">	if(onload)&#123;        //如果有锁存在，则不执行AJAX</div><div class="line">		return;  </div><div class="line">	&#125;</div><div class="line">	onload = true;      //上锁</div><div class="line">	ajax(&#123;</div><div class="line">		url:&apos;&apos;,</div><div class="line">		type:&apos;&apos;;</div><div class="line">		data:&#123;&#125;,</div><div class="line">		success:function(ret)&#123;</div><div class="line">			onload = false;  //解锁 </div><div class="line">		&#125;,</div><div class="line">		error:function()&#123;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>定时器：用setTimeout,让ajax请求在多少毫秒后发出，中间只要重复点击就清空定时器，以最后一次点击事件为准</p>
+</li>
+<li>禁用按钮：disabled，当请求发起时禁用掉按钮，当请求成功的时候按钮才能继续使用</li>
+</ul>
+<blockquote>
+<p>参考：<a href="https://www.zhihu.com/question/19805411" target="_blank" rel="external">怎样防止重复发送 Ajax 请求？</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[DOM事件]]></title>
+      <url>http://lilyzff.htmhub.com/2016/10/19/%E7%86%9F%E6%82%89%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/</url>
+      <content type="html"><![CDATA[<h1 id="动手题"><a href="#动手题" class="headerlink" title="动手题"></a>动手题</h1><h2 id="学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示"><a href="#学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示" class="headerlink" title="学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示"></a>学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示</h2><p><img src="http://lilyzff.htmhub.com/images/xampp.png" alt="xampp.png"></p>
+<p><img src="http://lilyzff.htmhub.com/images/phpcode.png" alt="phpcode.png"></p>
+<p><img src="http://lilyzff.htmhub.com/images/php1.png" alt="php1.png"></p>
+<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的"><a href="#1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的" class="headerlink" title="1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?"></a>1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?</h2><ul>
+<li>1.浏览器根据用户输入的域名，通过DNS服务器解析出相应的web服务器的IP地址</li>
+<li>2.浏览器请求相应IP地址下的相应动态网页资源（以PHP文件为例）</li>
+<li>3.web服务器接到请求后，找到相应目录下的php文件并交给PHP应用服务器来处理。</li>
+<li>4.如果文件中需要对数据库的数据进行处理，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据。</li>
+<li>5.PHP应用服务器将数据生成html静态代码，交给web服务器</li>
+<li>6.web服务器将收到的文件传给客户端浏览器</li>
+<li>7.浏览器解析渲染收到的文件，呈现给客户</li>
+</ul>
+<h2 id="2-常见的-WEB-服务器有哪些？"><a href="#2-常见的-WEB-服务器有哪些？" class="headerlink" title="2.常见的 WEB 服务器有哪些？"></a>2.常见的 WEB 服务器有哪些？</h2><p><strong>1.IIS</strong>  英文InternetInformationServer的缩写。它是微软公司主推的服务器。IIS的特点具有：安全性，强大，灵活。<br><strong>2.Tomcat</strong> 由Apache、Sun和其他一些公司及个人共同开发而成。Tomcat技术先进、性能稳定，而且免费，因而深受Java爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web应用服务器。<br><strong>3.Zeus</strong> 是一个运行于Unix下的非常优秀的Web服务器<br><strong>4.Nginx</strong>  不仅是一个小巧且高效的HTTP服务器，也可以做一个高效的负载均衡反向代理，通过它接受用户的请求并分发到多个Mongrel进程可以极大提高Rails应用的并发能力。<br><strong>5.Apache</strong> 是世界使用排名第一的Web服务器软件。它几乎可以运行在所有的计算机平台上。由于Apache是开源免费的，因此有很多人参与到新功能的开发设计，不断对其进行完善。Apache的特点是简单、速度快、性能稳定，并可做代理服务器来使用。<br><strong>6.Lighttpd</strong> 由德国人JanKneschke领导开发的，基于BSD许可的开源WEB服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的webserver环境。具有非常低的内存开销，CPU占用率低，效能好，以及丰富的模块等特点。支持FastCGI,CGI,Auth,输出压缩(outputcompress),URL重写,Alias等重要功能。</p>
+<h2 id="3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）"><a href="#3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）" class="headerlink" title="3.打开浏览器，在地址栏输入 http://jirengu.com 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）"></a>3.打开浏览器，在地址栏输入 <a href="http://jirengu.com" target="_blank" rel="external">http://jirengu.com</a> 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）</h2><p><strong>1.</strong>浏览器解析url,DNS查询域名对应的IP地址</p>
+<ul>
+<li>首先查看浏览器缓存</li>
+<li>若没有，查看系统缓存</li>
+<li>若没有，则查看路由器缓存</li>
+<li>若没有，则查看ISP服务商中的DNS缓存中查找</li>
+<li>若还是没有，则将从顶级域名服务器的根服务器开始递归查询</li>
+</ul>
+<p><strong>2.</strong> 浏览器得到IP地址打包http报文并发送服务器请求其所需要的资源；浏览器与服务器通过TCP/IP协议（三次握手等）来连接</p>
+<p><strong>3.</strong> 服务器接收到HTTP请求，ngnix进行相应的处理，调用对应的服务器脚本（PHP），根据用户传入的业务参数，调用数据库（MySQL）获取对应的数据，然后和php中的js、css、html融合完成页面数据的生成</p>
+<p><strong>4.</strong> 浏览器收到服务器响应后，开始下载代码（下载与渲染顺序由上到下，下载与渲染同时进行），之后解析HTML代码，构建DOM树，开始渲染页面</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[DOM事件]]></title>
       <url>http://lilyzff.htmhub.com/2016/10/10/DOM%E4%BA%8B%E4%BB%B6/</url>
       <content type="html"><![CDATA[<p>1.操作DOM元素<br><a id="more"></a></p>
 <h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-dom对象的innerText和innerHTML有什么区别？"><a href="#1-dom对象的innerText和innerHTML有什么区别？" class="headerlink" title="1.dom对象的innerText和innerHTML有什么区别？"></a>1.dom对象的innerText和innerHTML有什么区别？</h2><p><strong>innerText</strong>是一个可写属性，返回元素内包含的文本内容，在多层次的时候会按照元素由浅到深的顺序拼接其内容;当写入新内容时会覆盖掉其内部所有内容，此时输入的内容为文本格式，即使有HTML标签也会当成文本<br><strong>innerHTML</strong>属性作用和innerText类似，但是不是返回元素的文本内容，而是返回元素的HTML结构，在写入的时候也会自动构建DOM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;hello&lt;span&gt;hunger&lt;/span&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	var div=document.getElementsByTagName(&apos;div&apos;)[0];</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
