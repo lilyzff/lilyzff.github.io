@@ -4,32 +4,70 @@
   
     
     <entry>
-      <title><![CDATA[熟悉后端语言]]></title>
-      <url>http://lilyzff.htmhub.com/2016/10/19/%E7%86%9F%E6%82%89%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/</url>
-      <content type="html"><![CDATA[<h1 id="动手题"><a href="#动手题" class="headerlink" title="动手题"></a>动手题</h1><h2 id="学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示"><a href="#学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示" class="headerlink" title="学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示"></a>学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示</h2><p><img src="http://lilyzff.htmhub.com/images/xampp.png" alt="xampp.png"></p>
-<p><img src="http://lilyzff.htmhub.com/images/phpcode.png" alt="phpcode.png"></p>
-<p><img src="http://lilyzff.htmhub.com/images/php1.png" alt="php1.png"></p>
-<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的"><a href="#1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的" class="headerlink" title="1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?"></a>1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?</h2><ul>
-<li>1.浏览器根据用户输入的域名，通过DNS服务器解析出相应的web服务器的IP地址</li>
-<li>2.浏览器请求相应IP地址下的相应动态网页资源（以PHP文件为例）</li>
-<li>3.web服务器接到请求后，找到相应目录下的php文件并交给PHP应用服务器来处理。</li>
-<li>4.如果文件中需要对数据库的数据进行处理，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据。</li>
-<li>5.PHP应用服务器将数据生成html静态代码，交给web服务器</li>
-<li>6.web服务器将收到的文件传给客户端浏览器</li>
-<li>7.浏览器解析渲染收到的文件，呈现给客户</li>
-</ul>
-<h2 id="2-常见的-WEB-服务器有哪些？"><a href="#2-常见的-WEB-服务器有哪些？" class="headerlink" title="2.常见的 WEB 服务器有哪些？"></a>2.常见的 WEB 服务器有哪些？</h2><p><strong>1.IIS</strong>  英文InternetInformationServer的缩写。它是微软公司主推的服务器。IIS的特点具有：安全性，强大，灵活。<br><strong>2.Tomcat</strong> 由Apache、Sun和其他一些公司及个人共同开发而成。Tomcat技术先进、性能稳定，而且免费，因而深受Java爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web应用服务器。<br><strong>3.Zeus</strong> 是一个运行于Unix下的非常优秀的Web服务器<br><strong>4.Nginx</strong>  不仅是一个小巧且高效的HTTP服务器，也可以做一个高效的负载均衡反向代理，通过它接受用户的请求并分发到多个Mongrel进程可以极大提高Rails应用的并发能力。<br><strong>5.Apache</strong> 是世界使用排名第一的Web服务器软件。它几乎可以运行在所有的计算机平台上。由于Apache是开源免费的，因此有很多人参与到新功能的开发设计，不断对其进行完善。Apache的特点是简单、速度快、性能稳定，并可做代理服务器来使用。<br><strong>6.Lighttpd</strong> 由德国人JanKneschke领导开发的，基于BSD许可的开源WEB服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的webserver环境。具有非常低的内存开销，CPU占用率低，效能好，以及丰富的模块等特点。支持FastCGI,CGI,Auth,输出压缩(outputcompress),URL重写,Alias等重要功能。</p>
-<h2 id="3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）"><a href="#3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）" class="headerlink" title="3.打开浏览器，在地址栏输入 http://jirengu.com 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）"></a>3.打开浏览器，在地址栏输入 <a href="http://jirengu.com" target="_blank" rel="external">http://jirengu.com</a> 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）</h2><p><strong>1.</strong>浏览器解析url,DNS查询域名对应的IP地址</p>
+      <title><![CDATA[DOM事件]]></title>
+      <url>http://lilyzff.htmhub.com/2016/11/08/jqueryDom%E4%BA%8B%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>jquery 对象<br><a id="more"></a></p>
+<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><p>#问答</p>
+<h2 id="1-说说库和框架的区别？"><a href="#1-说说库和框架的区别？" class="headerlink" title="1.说说库和框架的区别？"></a>1.说说库和框架的区别？</h2><p><strong>库（library）:</strong>库是将代码集合成的一个产品，供程序员调用。面向对象的代码组织形式而成的库也叫类库。面向过程的代码组织形式而成的库也叫函数库。<br><strong>框架（framework）</strong>则是为解决一个(一类)问题而开发的产品，框架用户一般只需要使用框架提供的类或函数，即可实现全部功能。<br><strong>区别：</strong>框架和库比较类似，都是代码的集合，不过框架更加具有针对性，可以说是库的升级版，提供一套完整的代码，而不需要自己重组。</p>
+<h2 id="2-jquery-能做什么？"><a href="#2-jquery-能做什么？" class="headerlink" title="2.jquery 能做什么？"></a>2.jquery 能做什么？</h2><p>jQuery是一个兼容多浏览器的JavaScript库，核心理念是write less，do more，它的语法设计可以使开发更加便捷，例如操作文档对象、选择DOM元素、制作动画效果、事件处理、使用Ajax等。除此之外，jQuery还提供API让开发者编写插件。总之，使用jQuery能使开发者很轻松的开发出功能强大的静态或动态页面。</p>
+<h2 id="3-jquery-对象和-DOM-原生对象有什么区别？如何转化？"><a href="#3-jquery-对象和-DOM-原生对象有什么区别？如何转化？" class="headerlink" title="3.jquery 对象和 DOM 原生对象有什么区别？如何转化？"></a>3.jquery 对象和 DOM 原生对象有什么区别？如何转化？</h2><p><strong>区别：</strong>jquery对象是在DOM原生对象上做了一层包装，只能使用jquery对象方法，不能使用DOM原生对象方法，同理DOM原生对象也不能使用jquery对象方法。<br><strong>转化：</strong></p>
 <ul>
-<li>首先查看浏览器缓存</li>
-<li>若没有，查看系统缓存</li>
-<li>若没有，则查看路由器缓存</li>
-<li>若没有，则查看ISP服务商中的DNS缓存中查找</li>
-<li>若还是没有，则将从顶级域名服务器的根服务器开始递归查询</li>
+<li>jquery对象转化为DOM对象：jQuery对象是一个类似数组的对象，可以使用[index]或者get[index]方法转换为DOM对象,代码如下：</li>
 </ul>
-<p><strong>2.</strong> 浏览器得到IP地址打包http报文并发送服务器请求其所需要的资源；浏览器与服务器通过TCP/IP协议（三次握手等）来连接</p>
-<p><strong>3.</strong> 服务器接收到HTTP请求，ngnix进行相应的处理，调用对应的服务器脚本（PHP），根据用户传入的业务参数，调用数据库（MySQL）获取对应的数据，然后和php中的js、css、html融合完成页面数据的生成</p>
-<p><strong>4.</strong> 浏览器收到服务器响应后，开始下载代码（下载与渲染顺序由上到下，下载与渲染同时进行），之后解析HTML代码，构建DOM树，开始渲染页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var $ct=$(&quot;#ct&quot;);  //jquery对象</div><div class="line">var ct=$ct[0];      //DOM对象</div><div class="line">var ct1=$ct.get[0];  //DOM对象</div></pre></td></tr></table></figure>
+<ul>
+<li>DOM对象转化为 jquery对象：用$()把DOM原生对象包装起来，就可以转换为jquery对象，代码如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var ct=document.getElementById(&apos;ct&apos;);  //DOM对象</div><div class="line">var  $ct=$(ct)  //jquery对象</div></pre></td></tr></table></figure>
+<h2 id="4-jquery中如何绑定事件？bind、unbind、delegate、live、on、off都有什么作用？推荐使用哪种？使用on绑定事件使用事件代理的写法？"><a href="#4-jquery中如何绑定事件？bind、unbind、delegate、live、on、off都有什么作用？推荐使用哪种？使用on绑定事件使用事件代理的写法？" class="headerlink" title="4.jquery中如何绑定事件？bind、unbind、delegate、live、on、off都有什么作用？推荐使用哪种？使用on绑定事件使用事件代理的写法？"></a>4.jquery中如何绑定事件？bind、unbind、delegate、live、on、off都有什么作用？推荐使用哪种？使用on绑定事件使用事件代理的写法？</h2><p>jQuery绑定事件的方法有.bind()、.live()、.delegate()和.on()。.unbind()、.die()、.undelegate()和.off()分别是上述对应的解除绑定的方法。</p>
+<ul>
+<li><p>bind:为一个元素绑定一个事件处理程序，在jQuery 3.0版本中，标记为弃用。举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;.ct a&quot;).bind(&quot;click&quot;,function()&#123;</div><div class="line">        console.log($(this).text());</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>unbind:用来解除bind方法绑定的事件。同样，在jQuery 3.0版本中，标记为弃用。举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;.ct &quot;).unbind();</div></pre></td></tr></table></figure>
+</li>
+<li><p>live:这种方法是将页面的document元素作为事件代理元素，太消耗资源，已经过时。在新版本中推荐用.on()法，即时在旧版本中，也推荐使用.delegate()方法来取代.live()方法。举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;.ct a&quot;).live(&quot;click&quot;,function()&#123;</div><div class="line">        console.log($(this).text());//如果有新的a元素创建，也会触发该事件</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>delegate：为所有匹配选择器（selector参数）的元素绑定一个处理器到一个或多个事件，现在或将来， 基于根元素的一个特定的组。在jQuery 3.0中，.delegate()也已被标记为弃用。delegate方法比live方法好在能指定事件代理元素。举例：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;.ct&quot;).delegate(&quot;a&quot;,&quot;click&quot;,function()&#123;</div><div class="line">       console.log($(this).text());//事件冒泡到ct元素上，只有它的子元素a才会触发</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>on：在选定的元素上绑定一个或多个事件处理函数。从jQuery1.7开始，.on()方法提供了事件处理的所有功能。所以，为了统一和方便，<strong>推荐使用.on()方法作为绑定事件的方法</strong>。举例on绑定事件使用事件代理的写法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;.ct&quot;).on(&quot;click&quot;,&quot;a&quot;,function()&#123;</div><div class="line">       console.log($(this).text());</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>off:用来移除用.on()方法绑定的事件。举例<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(&quot;.ct&quot;).on(&quot;click&quot;,&quot;a&quot;,function()&#123;</div><div class="line">       console.log($(this).text());</div><div class="line">&#125;);</div><div class="line">$(&quot;.ct&quot;).off(&quot;click&quot;,&quot;*&quot;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="5-jquery-如何展示-隐藏元素？"><a href="#5-jquery-如何展示-隐藏元素？" class="headerlink" title="5.jquery 如何展示/隐藏元素？"></a>5.jquery 如何展示/隐藏元素？</h2><p>使用hide()和show()方法实现展示隐藏元素；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;demo2&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">	&lt;button class=&quot;show&quot; type=&quot;button&quot;&gt;显示&lt;/button&gt;</div><div class="line">	&lt;button class=&quot;hide&quot; type=&quot;button&quot;&gt;隐藏&lt;/button&gt;</div><div class="line">	&lt;script src=&quot;http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">	    $(document).ready(function()&#123;</div><div class="line">	    	$(&apos;.show&apos;).on(&apos;click&apos;,function()&#123;</div><div class="line">			$(&apos;p&apos;).show();</div><div class="line">		    &#125;);</div><div class="line">			$(&apos;.hide&apos;).on(&apos;click&apos;,function()&#123;</div><div class="line">				$(&apos;p&apos;).hide();</div><div class="line">			&#125;);</div><div class="line">	    &#125;)</div><div class="line">		</div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="6-jquery-动画如何使用？"><a href="#6-jquery-动画如何使用？" class="headerlink" title="6.jquery 动画如何使用？"></a>6.jquery 动画如何使用？</h2><p>jQuery animate() 方法用于创建自定义动画。<br>语法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).animate(&#123;params&#125;,speed,callback);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>必需的 params 参数定义形成动画的 CSS 属性</li>
+<li>可选的 speed 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒</li>
+<li>可选的 callback 参数是动画完成后所执行的函数名称。</li>
+</ul>
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;jquery 动画&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div class=&quot;ct&quot;&gt;jquery&lt;/div&gt;</div><div class="line">	&lt;button class=&quot;btn&quot;&gt;动画&lt;/button&gt;</div><div class="line">	&lt;script src=&quot;http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		$(document).ready(function()&#123;</div><div class="line">			$(&quot;.btn&quot;).on(&apos;click&apos;,function()&#123;</div><div class="line">				$(&quot;.ct&quot;).animate(&#123;left:&apos;100px&apos;&#125;);</div><div class="line">				$(&quot;.ct&quot;).animate(&#123;top:&apos;100px&apos;&#125;);</div><div class="line">				$(&quot;.ct&quot;).animate(&#123;left:&apos;0&apos;&#125;);</div><div class="line">				$(&quot;.ct&quot;).animate(&#123;top:&apos;0&apos;&#125;);</div><div class="line">			&#125;)</div><div class="line">		&#125;)</div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="7-如何设置和获取元素内部-HTML-内容？如何设置和获取元素内部文本？"><a href="#7-如何设置和获取元素内部-HTML-内容？如何设置和获取元素内部文本？" class="headerlink" title="7.如何设置和获取元素内部 HTML 内容？如何设置和获取元素内部文本？"></a>7.如何设置和获取元素内部 HTML 内容？如何设置和获取元素内部文本？</h2><ul>
+<li>用html()方法可以设置和获取元素内部HTML内容，如果在中间写入文本，可以设置html内容。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;demo2&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div class=&quot;ct&quot;&gt;&lt;span&gt;jquery&lt;/span&gt;&lt;/div&gt;</div><div class="line">	&lt;button class=&quot;btn&quot;&gt;更改&lt;/button&gt;</div><div class="line">	&lt;script src=&quot;http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		$(document).ready(function()&#123;</div><div class="line">			console.log($(&quot;.ct&quot;).html());</div><div class="line">			$(&quot;.btn&quot;).on(&apos;click&apos;,function()&#123;</div><div class="line">				$(&quot;.ct&quot;).html(&quot;&lt;span&gt;更改后的内容&lt;/span&gt;&quot;)</div><div class="line">			&#125;)</div><div class="line">		&#125;)</div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://lilyzff.htmhub.com/images/jqueryHtml.png" alt="jqueryHtml.png"></p>
+<ul>
+<li>用text()方法可以设置和获取元素内部文本内容，如果在中间写入文本，可以设置文本内容，用法同html()一样。</li>
+</ul>
+<h2 id="8-如何设置和获取表单用户输入或者选择的内容？如何设置和获取元素属性？"><a href="#8-如何设置和获取表单用户输入或者选择的内容？如何设置和获取元素属性？" class="headerlink" title="8.如何设置和获取表单用户输入或者选择的内容？如何设置和获取元素属性？"></a>8.如何设置和获取表单用户输入或者选择的内容？如何设置和获取元素属性？</h2><ul>
+<li>通过val()方法可以设置和获取表单用户输入或者选择的内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;demo2&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;input type=&quot;text&quot;&gt;</div><div class="line">	&lt;script src=&quot;http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		$(document).ready(function()&#123;</div><div class="line">			console.log($(&apos;input&apos;).val());</div><div class="line">		&#125;)</div><div class="line">	&lt;/script&gt; </div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://lilyzff.htmhub.com/images/jqueryVal.png" alt="jqueryVal.png"></p>
+<ul>
+<li>attr() 设置或返回元素的属性</li>
+</ul>
 ]]></content>
     </entry>
     
@@ -62,6 +100,36 @@
 <blockquote>
 <p>参考：<a href="https://www.zhihu.com/question/19805411" target="_blank" rel="external">怎样防止重复发送 Ajax 请求？</a></p>
 </blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[熟悉后端语言]]></title>
+      <url>http://lilyzff.htmhub.com/2016/10/19/%E7%86%9F%E6%82%89%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/</url>
+      <content type="html"><![CDATA[<h1 id="动手题"><a href="#动手题" class="headerlink" title="动手题"></a>动手题</h1><h2 id="学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示"><a href="#学习-xampp或者wamp-的简单配置使用，在本地启动-web-服务器，通过浏览器访问，通过浏览器打开本地-webserver-下的-php-文件，截图展示" class="headerlink" title="学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示"></a>学习 xampp或者wamp 的简单配置使用，在本地启动 web 服务器，通过浏览器访问，通过浏览器打开本地 webserver 下的 php 文件，截图展示</h2><p><img src="http://lilyzff.htmhub.com/images/xampp.png" alt="xampp.png"></p>
+<p><img src="http://lilyzff.htmhub.com/images/phpcode.png" alt="phpcode.png"></p>
+<p><img src="http://lilyzff.htmhub.com/images/php1.png" alt="php1.png"></p>
+<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的"><a href="#1-简单描述下web-服务器、PHP、数据库、浏览器是如何实现动态网站的" class="headerlink" title="1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?"></a>1.简单描述下web 服务器、PHP、数据库、浏览器是如何实现动态网站的?</h2><ul>
+<li>1.浏览器根据用户输入的域名，通过DNS服务器解析出相应的web服务器的IP地址</li>
+<li>2.浏览器请求相应IP地址下的相应动态网页资源（以PHP文件为例）</li>
+<li>3.web服务器接到请求后，找到相应目录下的php文件并交给PHP应用服务器来处理。</li>
+<li>4.如果文件中需要对数据库的数据进行处理，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据。</li>
+<li>5.PHP应用服务器将数据生成html静态代码，交给web服务器</li>
+<li>6.web服务器将收到的文件传给客户端浏览器</li>
+<li>7.浏览器解析渲染收到的文件，呈现给客户</li>
+</ul>
+<h2 id="2-常见的-WEB-服务器有哪些？"><a href="#2-常见的-WEB-服务器有哪些？" class="headerlink" title="2.常见的 WEB 服务器有哪些？"></a>2.常见的 WEB 服务器有哪些？</h2><p><strong>1.IIS</strong>  英文InternetInformationServer的缩写。它是微软公司主推的服务器。IIS的特点具有：安全性，强大，灵活。<br><strong>2.Tomcat</strong> 由Apache、Sun和其他一些公司及个人共同开发而成。Tomcat技术先进、性能稳定，而且免费，因而深受Java爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web应用服务器。<br><strong>3.Zeus</strong> 是一个运行于Unix下的非常优秀的Web服务器<br><strong>4.Nginx</strong>  不仅是一个小巧且高效的HTTP服务器，也可以做一个高效的负载均衡反向代理，通过它接受用户的请求并分发到多个Mongrel进程可以极大提高Rails应用的并发能力。<br><strong>5.Apache</strong> 是世界使用排名第一的Web服务器软件。它几乎可以运行在所有的计算机平台上。由于Apache是开源免费的，因此有很多人参与到新功能的开发设计，不断对其进行完善。Apache的特点是简单、速度快、性能稳定，并可做代理服务器来使用。<br><strong>6.Lighttpd</strong> 由德国人JanKneschke领导开发的，基于BSD许可的开源WEB服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的webserver环境。具有非常低的内存开销，CPU占用率低，效能好，以及丰富的模块等特点。支持FastCGI,CGI,Auth,输出压缩(outputcompress),URL重写,Alias等重要功能。</p>
+<h2 id="3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）"><a href="#3-打开浏览器，在地址栏输入-http-jirengu-com-页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言-php-web服务器-nginx，数据库-mysql）" class="headerlink" title="3.打开浏览器，在地址栏输入 http://jirengu.com 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）"></a>3.打开浏览器，在地址栏输入 <a href="http://jirengu.com" target="_blank" rel="external">http://jirengu.com</a> 页面展现了饥人谷官网的信息，整个过程发生了什么？（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）</h2><p><strong>1.</strong>浏览器解析url,DNS查询域名对应的IP地址</p>
+<ul>
+<li>首先查看浏览器缓存</li>
+<li>若没有，查看系统缓存</li>
+<li>若没有，则查看路由器缓存</li>
+<li>若没有，则查看ISP服务商中的DNS缓存中查找</li>
+<li>若还是没有，则将从顶级域名服务器的根服务器开始递归查询</li>
+</ul>
+<p><strong>2.</strong> 浏览器得到IP地址打包http报文并发送服务器请求其所需要的资源；浏览器与服务器通过TCP/IP协议（三次握手等）来连接</p>
+<p><strong>3.</strong> 服务器接收到HTTP请求，ngnix进行相应的处理，调用对应的服务器脚本（PHP），根据用户传入的业务参数，调用数据库（MySQL）获取对应的数据，然后和php中的js、css、html融合完成页面数据的生成</p>
+<p><strong>4.</strong> 浏览器收到服务器响应后，开始下载代码（下载与渲染顺序由上到下，下载与渲染同时进行），之后解析HTML代码，构建DOM树，开始渲染页面</p>
 ]]></content>
     </entry>
     
@@ -662,14 +730,14 @@
     </entry>
     
     <entry>
-      <title><![CDATA[about]]></title>
-      <url>http://lilyzff.htmhub.com/about/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>http://lilyzff.htmhub.com/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://lilyzff.htmhub.com/tags/index.html</url>
+      <title><![CDATA[about]]></title>
+      <url>http://lilyzff.htmhub.com/about/index.html</url>
       <content type="html"></content>
     </entry>
     
