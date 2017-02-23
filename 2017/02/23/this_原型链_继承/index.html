@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="lilyzff" />
+
+
+
+<meta name="description" content="this原型链继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="this_原型链_继承">
+<meta property="og:url" content="http://lilyzff.htmhub.com/2017/02/23/this_原型链_继承/index.html">
+<meta property="og:site_name" content="Lily`s Blog">
+<meta property="og:description" content="this原型链继承">
+<meta property="og:updated_time" content="2017-02-23T14:47:28.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="this_原型链_继承">
+<meta name="twitter:description" content="this原型链继承">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Lily`s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>this_原型链_继承 | Lily`s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">lilyzff</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">风轻云淡</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:zffamm1967@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/lilyzff" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/document-ready-、window-onload/">$(document).ready()、window.onload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-hack/">CSS hack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Date-now/">Date.now()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery-ajax/">JQuery ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery-的链式调用/">JQuery 的链式调用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/d、-D、-w、-W、-s/">\d、\D、\w、\W、\s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/appendChild/">appendChild()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apply、cal/">apply、cal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arguments/">arguments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/attachEvent、addEventListener/">attachEvent、addEventListener</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind、unbind、delegate、live、on、off/">bind、unbind、delegate、live、on、off</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clearInterval/">clearInterval()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clearTimeout/">clearTimeout()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/createElement、setAttribute/">createElement、setAttribute()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/defer/">defer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/demo/">demo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exec/">exec()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/filter/">filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/getElementById-、getElementsByTagName-、querySelector/">getElementById()、getElementsByTagName()、querySelector()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/getFullYear/">getFullYear</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hasOwnProperty/">hasOwnProperty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignoreCase、global、multiline/">ignoreCase、global、multiline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceOf/">instanceOf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-DOM操作/">jQuery DOM操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/join、split/">join、split</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery-动画/">jquery 动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery-对象/">jquery 对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery-常用方法/">jquery 常用方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery懒加载/">jquery懒加载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mock数据/">mock数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/new-Date/">new Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/normalize-css/">normalize.css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prototype-constructor/">prototype/constructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push、pop/">push、pop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/random/">random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reset-css/">reset.css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setInterval/">setInterval</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setTimeout/">setTimeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shift、unshift/">shift、unshift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/splice/">splice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事件冒泡、事件捕获/">事件冒泡、事件捕获</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作用域链/">作用域链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数声明/">函数声明</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数表达式/">函数表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态网站访问流程/">动态网站访问流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量的声明前置/">变量的声明前置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/回到顶部/">回到顶部</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础类型、复杂类型/">基础类型、复杂类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库和框架/">库和框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据类型/">数据类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容/">浏览器兼容</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/白屏/">白屏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/继承/">继承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪婪模式和非贪婪模式/">贪婪模式和非贪婪模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递归/">递归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重载/">重载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">lilyzff</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">lilyzff</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">风轻云淡</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:zffamm1967@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/lilyzff" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-this_原型链_继承" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/23/this_原型链_继承/" class="article-date">
+      <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      this_原型链_继承
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端学习之路/">前端学习之路</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apply、cal/">apply、cal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hasOwnProperty/">hasOwnProperty</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instanceOf/">instanceOf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype-constructor/">prototype/constructor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/继承/">继承</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>this<em>原型链</em>继承<br><a id="more"></a></p>
+<h1 id="this相关问题"><a href="#this相关问题" class="headerlink" title="this相关问题"></a>this相关问题</h1><h2 id="1-apply、call-有什么作用，什么区别"><a href="#1-apply、call-有什么作用，什么区别" class="headerlink" title="1.apply、call 有什么作用，什么区别"></a>1.apply、call 有什么作用，什么区别</h2><ul>
+<li><strong>作用</strong><br><strong>call()</strong>方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法.<br><strong>apply()
+</strong> 方法在指定 this值和参数（参数以数组或<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Predefined_Core_Objects#Working_with_Array-like_objects" target="_blank" rel="external">类数组对象</a>的形式存在）的情况下调用某个函数。</li>
+<li><strong>区别</strong><br><strong>call()</strong>方法接受的是一个参数列表，<strong>apply()</strong>方法接受的是包含多个参数的数组（或类数组对象）</li>
+<li><strong>举例</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function sum(x,y)&#123;</div><div class="line"> 		console.log(x+y)</div><div class="line"> 	&#125;</div><div class="line"></div><div class="line"> 	function callSum(x,y)&#123;</div><div class="line"> 		return sum.call(this,x,y) //使用call方法，逐条列举参数</div><div class="line"> 	&#125;</div><div class="line"></div><div class="line"> 	function applySum(x,y)&#123;</div><div class="line"> 		return sum.apply(this,[x,y]) //使用apply方法，必须传入数组</div><div class="line"> 	&#125;</div><div class="line"></div><div class="line"> 	callSum(7,8) //15</div><div class="line"> 	applySum(7,8) //15</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ol>
+<li>以下代码输出什么?</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var john = &#123; </div><div class="line">  firstName: &quot;John&quot; </div><div class="line">&#125;</div><div class="line">function func() &#123; </div><div class="line">  alert(this.firstName + &quot;: hi!&quot;)</div><div class="line">&#125;</div><div class="line">john.sayHi = func //将函数绑定给john对象的sayHi方法</div><div class="line">john.sayHi() //输出 &quot;John: hi!&quot;,调用john对象的sayHi方法，其中this指向john</div></pre></td></tr></table></figure>
+<p>2.下面代码输出什么，为什么</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">func()  //在全局环境下调用func()函数，this指向全局对象，输出window</div><div class="line"></div><div class="line"> function func() &#123; </div><div class="line">  alert(this)</div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
+<p>3.下面代码输出什么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function fn0()&#123;</div><div class="line">    function fn()&#123;</div><div class="line">        console.log(this);</div><div class="line">    &#125;</div><div class="line">    fn();</div><div class="line">&#125;</div><div class="line"></div><div class="line">fn0(); //输出window，此时的fn()在全局环境下调用，其this指向window</div><div class="line"></div><div class="line"></div><div class="line">document.addEventListener(&apos;click&apos;, function(e)&#123;</div><div class="line">    console.log(this);// 输出document,因为是在documnet上绑定事件，所以this指向document</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(this);//输出window，setTimeout是window对象下的方法，this指向window</div><div class="line">    &#125;, 200);</div><div class="line">&#125;, false);</div></pre></td></tr></table></figure>
+<p>4.下面代码输出什么，why</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var john = &#123; </div><div class="line">  firstName: &quot;John&quot; </div><div class="line">&#125;</div><div class="line"></div><div class="line">function func() &#123; </div><div class="line">  alert( this.firstName )</div><div class="line">&#125;</div><div class="line">func.call(john) //输出John，当函数被call方法调用时，this指向传入的对象。这里func函数指向john对象</div></pre></td></tr></table></figure>
+<p>5.代码输出？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var john = &#123; </div><div class="line">  firstName: &quot;John&quot;,</div><div class="line">  surname: &quot;Smith&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function func(a, b) &#123; </div><div class="line">  alert( this[a] + &apos; &apos; + this[b] )</div><div class="line">&#125;</div><div class="line">func.call(john, &apos;firstName&apos;, &apos;surname&apos;) //输出 John Smith。因为当函数被call方法调用时，this指向传入的对象</div></pre></td></tr></table></figure>
+<p>6.以下代码有什么问题，如何修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">var module= &#123;</div><div class="line">  bind: function()&#123;</div><div class="line">    $btn.on(&apos;click&apos;, function()&#123;</div><div class="line">      console.log(this) //this指的是$btn</div><div class="line">      this.showMsg();//输出报错，因为是在btn上绑定事件，所以this指向btn，而btn上是没有showMsg方法</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line">  </div><div class="line">  showMsg: function()&#123;</div><div class="line">    console.log(&apos;饥人谷&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//修改后</div><div class="line">var module= &#123;</div><div class="line">  bind: function()&#123;</div><div class="line">  var that = this;</div><div class="line">    $btn.on(&apos;click&apos;, function()&#123;</div><div class="line">      console.log(this) </div><div class="line">      that.showMsg();</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line">  </div><div class="line">  showMsg: function()&#123;</div><div class="line">    console.log(&apos;饥人谷&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>7.下面代码输出什么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var length = 3;</div><div class="line">function fa() &#123;</div><div class="line">  console.log(this.length);</div><div class="line">&#125;</div><div class="line">var obj = &#123;</div><div class="line">  length: 2,</div><div class="line">  doSome: function (fn) &#123;</div><div class="line">    fn();</div><div class="line">    arguments[0]();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">obj.doSome(fa)</div></pre></td></tr></table></figure>
+<p>obj.doSome(fa)相当于obj.doSome.call(obj,fa),虽然这里this指向obj，但是第二个参数位置上是fa函数，doSome定义传入参数并执行fn,所以fa函数要执行，fa()等价于fa.call(null)，这里this指向全局对象window，而var length=3是在全局对象下声明，所以第一次打印结果为3.<br>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 原型链相关问题</div><div class="line"></div><div class="line">## 有如下代码，解释Person、 prototype、__proto__、p、constructor之间的关联。</div></pre></td></tr></table></figure></p>
+<p>function Person(name){<br>    this.name = name;<br>}<br>Person.prototype.sayName = function(){<br>    console.log(‘My name is :’ + this.name);<br>}<br>var p = new Person(“若愚”)<br>p.sayName();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">关联如图：</div><div class="line"></div><div class="line">![axure2.png](http://lilyzff.htmhub.com/images/axure2.png)</div><div class="line"></div><div class="line">(1).**Person**是一个构造函数，也是一个对象，通过new方法构造一个新的实例；</div><div class="line">(2).**prototype**是原型对象，每个函数都有的。原型对象默认有constructor和```_proto_```属性</div><div class="line">(3). ```_proto_``` 每个对象都拥有的属性，它指向创建该对象的构造函数的原型</div><div class="line">(4).constructor是每个函数原型对象含有的属性，他指向构造函数本身。</div><div class="line"></div><div class="line">## 上例中，对对象 p可以这样调用 p.toString()。toString是哪里来的? 画出原型图?并解释什么是原型链。</div><div class="line"></div><div class="line">原型图：</div><div class="line"></div><div class="line"></div><div class="line">![prototype1.png](http://lilyzff.htmhub.com/images/prototype1.png)</div><div class="line"></div><div class="line">**原型链（prototype chain）：**在 javaScript 中，每个对象都有一个指向它的原型（prototype）对象的内部链接。这个原型对象又有自己的原型，直到某个对象的原型为 null 为止（也就是不再有原型指向），组成这条链的最后一环。这种一级一级的链结构就称为原型链（prototype chain）。</div><div class="line">&gt;参考：[原型链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)</div><div class="line"></div><div class="line">**toString是哪里来：**p对象在自己身上找toString，没有找到，到```p._proto_```指定的原型对象里面找，没有然后到原型对象```_proto_```指定的原型对象里找，最后在Object.prototype对象里就找到了toString();</div><div class="line"></div><div class="line">## 对String做扩展，实现如下方式获取字符串中频率最高的字符</div></pre></td></tr></table></figure></p>
+<p>var str = ‘ahbbccdeddddfg’;<br>var ch = str.getMostOften();<br>console.log(ch); //d , 因为d 出现了5次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如下：</div></pre></td></tr></table></figure></p>
+<pre><code>String.prototype.getMostOften=function(){
+    var obj={};
+    for(var i=0;i&lt;this.length;i++){
+        var p=this[i];
+        if(!obj[p]){
+            obj[p]=1;
+        }else{
+            obj[p]++
+        }
+    }
+
+    var max=0;
+    var val;
+    for(var key in obj){
+        if(obj[key]&gt;max){
+            max=obj[key];
+            val=key
+        }
+    }
+    return val;
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##  instanceOf有什么作用？内部逻辑是如何实现的？</div><div class="line">instanceOf运算符用来测试一个对象在其原型链中是否存在一个构造函数prototype 属性</div></pre></td></tr></table></figure>
+<pre><code>function _instanceOf(obj,fn){
+    var proto=obj.__proto__;
+
+    do{
+        if(proto===fn.prototype){
+            return true;
+        }else{
+            proto=proto.__proto__
+        }
+    }while(proto)
+    return false;
+}
+var arr=[1,2,3];
+_instanceOf(arr,Array);//true
+_instanceOf(arr,Object)//true
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 继承相关问题</div><div class="line"></div><div class="line">## 继承有什么作用?</div><div class="line">* 作用：</div><div class="line">1.子类拥有父类的属性和方法，不需要重复写代码，修改时也只需修改一份代码</div><div class="line">2.可以重写和扩展父类的属性和代码，又不影响父类本身</div><div class="line"></div><div class="line">## 下面两种写法有什么区别？</div></pre></td></tr></table></figure>
+<pre><code>//方法1
+</code></pre><p>function People(name, sex){<br>    this.name = name;<br>    this.sex = sex;<br>    this.printName = function(){<br>        console.log(this.name);<br>    }<br>}<br>var p1 = new People(‘饥人谷’, 2)</p>
+<p>//方法2<br>function Person(name, sex){<br>    this.name = name;<br>    this.sex = sex;<br>}</p>
+<p>Person.prototype.printName = function(){<br>    console.log(this.name);<br>}<br>var p1 = new Person(‘若愚’, 27);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">* 方法1里的printName方法是定义在构造函数内部，会在它的每一个实例上都克隆这个方法；</div><div class="line">* 方法2的printName方法绑定在父类Person的prototype属性下，会让它的所有实例都共享这个方法，但是不会在每个实例的内部重新定义这个方法</div><div class="line"></div><div class="line">## Object.create 有什么作用？兼容性如何？</div><div class="line">* 作用：</div><div class="line">Object.create(proto, [ propertiesObject ])方法创建一个拥有指定原型和若干个指定属性的对象。</div><div class="line">proto,一个对象，作为新创建对象的原型。或者为 null。</div><div class="line">propertiesObject,可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（这些属性描述符的结构与[Object.defineProperties()</div><div class="line">](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties)的第二个参数一样）。注意：该参数对象不能是 [undefined</div><div class="line">](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)，另外只有该对象中自身拥有的可枚举的属性才有效，也就是说该对象的原型链上属性是无效的。</div><div class="line">&gt; 参考：[Object.create](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)</div><div class="line"></div><div class="line">* 兼容性</div><div class="line"></div><div class="line">![ecmascript.png](http://lilyzff.htmhub.com/images/ecmascript.png)</div><div class="line"></div><div class="line"></div><div class="line">## hasOwnProperty有什么作用？ 如何使用？</div><div class="line">**作用：**hasOwnPerperty是Object.prototype的一个方法，可以判断一个对象是否包含自定义属性而不是原型链上的属性，会返回一个布尔值，hasOwnProperty是JavaScript中唯一一个处理属性但是不查找原型链的函数</div><div class="line">**如何使用**</div></pre></td></tr></table></figure></p>
+<p>function Person(name,age){<br>    this.name=name;<br>    this.age=age;<br>}<br>Person.prototype.sayName=function(){<br>    console.log(this.name)<br>}<br>var p1 = new Person(‘lily’,27);</p>
+<p>console.log(p1.hasOwnProperty(‘name’));<br>console.log(p1.hasOwnProperty(‘sayName’));<br>console.log(Person.prototype.hasOwnProperty(‘sayName’));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">![hasownpro.png](http://lilyzff.htmhub.com/images/hasownpro.png)</div><div class="line"></div><div class="line">## 如下代码中call的作用是什么?</div></pre></td></tr></table></figure></p>
+<p>function Person(name, sex){<br>    this.name = name;<br>    this.sex = sex;<br>}<br>function Male(name, sex, age){<br>    Person.call(this, name, sex);    //这里的 call 有什么作用<br>    this.age = age;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* 这里的call指定了Person函数执行的环境。在Male作用域执行Person函数。此时Person函数中的this，就指向Male函数中的this。通过这种方式就实现了属性的继承。</div><div class="line"></div><div class="line">##  补全代码，实现继承</div></pre></td></tr></table></figure></p>
+<p>function Person(name, sex){<br>    // todo …<br>}</p>
+<p>Person.prototype.getName = function(){<br>    // todo …<br>};    </p>
+<p>function Male(name, sex, age){<br>   //todo …<br>}</p>
+<p>//todo …<br>Male.prototype.getAge = function(){<br>    //todo …<br>};</p>
+<p>var ruoyu = new Male(‘若愚’, ‘男’, 27);<br>ruoyu.printName();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">代码如下：</div></pre></td></tr></table></figure></p>
+<p>function Person(name, sex){<br>    this.name=name;<br>    this.sex=sex;<br>}</p>
+<p>Person.prototype.getName = function(){<br>    console.log(this.name)<br>};    </p>
+<p>function Male(name, sex, age){<br>   Person.call(this,name,sex);<br>   this.age=age;<br>}</p>
+<p>Male.prototype=Object.create(Person.prototype);<br>Male.prototype.getAge = function(){<br>    console.log(this.age)<br>};</p>
+<p>var ruoyu = new Male(‘若愚’, ‘男’, 27);<br>ruoyu.getName();<br>```</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/02/23/this_原型链_继承/">this_原型链_继承</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">lilyzff</a></p>
+        <p><span>发布时间:</span>2017-02-23, 00:00:00</p>
+        <p><span>最后更新:</span>2017-02-23, 22:47:28</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/23/this_原型链_继承/" title="this_原型链_继承">http://lilyzff.htmhub.com/2017/02/23/this_原型链_继承/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lilyzff.htmhub.com/2017/02/23/this_原型链_继承/　　作者: lilyzff" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/02/18/对象_原型/">
+                    对象_原型
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#this相关问题"><span class="toc-number">1.</span> <span class="toc-text">this相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-apply、call-有什么作用，什么区别"><span class="toc-number">1.1.</span> <span class="toc-text">1.apply、call 有什么作用，什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">1.2.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"this_原型链_继承　| Lily`s Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/02/23/this_原型链_继承/" data-title="this_原型链_继承" data-url="http://lilyzff.htmhub.com/2017/02/23/this_原型链_继承/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"lilyzff"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/02/18/对象_原型/" title="下一篇: 对象_原型">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/this_原型链_继承/">this_原型链_继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/对象_原型/">对象_原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/jquery懒加载/">jquery懒加载、回到顶部</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/jquery 常用方法&ajax/">jquery 常用方法&ajax</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/08/jqueryDom事件/">DOM事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/19/熟悉后端语言/">熟悉后端语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/19/ajax/">AJAX</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/10/DOM事件/">DOM事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/27/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/闭包/">闭包、定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/时间对象/">时间对象、引用类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/数组/">数组、字符串、数学函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/函数/">函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/JavaScript基本概念/">JavaScript基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/task13/">浏览器兼容</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 lilyzff
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
